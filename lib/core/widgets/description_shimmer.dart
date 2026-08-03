@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:feature_based_with_mvvm/core/widgets/app_shimmer.dart';
+import 'package:project_2/core/widgets/app_shimmer.dart';
 
 class DescriptionShimmer extends StatelessWidget {
   const DescriptionShimmer({super.key, required this.linesNumber, this.width});

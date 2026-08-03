@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/widgets/cached_image.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/widgets/cached_image.dart';
 
 class ImageViewer extends StatefulWidget {
   const ImageViewer({

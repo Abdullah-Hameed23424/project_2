@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:feature_based_with_mvvm/core/error/error_handler/app_error_type.dart';
+import 'package:project_2/core/error/error_handler/app_error_type.dart';
 
 /// [ErrorClassifier]
 /// Classifies errors into specific types for handling.

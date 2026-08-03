@@ -1,7 +1,7 @@
-import 'package:feature_based_with_mvvm/core/constants/app_icons.dart';
-import 'package:feature_based_with_mvvm/core/localization/app_localization.dart';
-import 'package:feature_based_with_mvvm/core/localization/custom_delegate.dart';
-import 'package:feature_based_with_mvvm/core/localization/language_model.dart';
+import 'package:project_2/core/constants/app_icons.dart';
+import 'package:project_2/core/localization/app_localization.dart';
+import 'package:project_2/core/localization/custom_delegate.dart';
+import 'package:project_2/core/localization/language_model.dart';
 import 'package:flutter/material.dart';
 
 String translate(String key, BuildContext context, {List<String>? args}) {

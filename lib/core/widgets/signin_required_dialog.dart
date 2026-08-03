@@ -1,10 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
-import 'package:feature_based_with_mvvm/core/routing/app_routes.dart';
-import 'package:feature_based_with_mvvm/core/routing/navigation_service.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/theme/app_theme.dart';
+import 'package:project_2/core/routing/app_routes.dart';
+import 'package:project_2/core/routing/navigation_service.dart';
 
 class SigninRequiredDialog extends StatelessWidget {
   const SigninRequiredDialog({super.key});

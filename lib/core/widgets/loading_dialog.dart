@@ -1,12 +1,12 @@
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
+import 'package:project_2/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/constants/dimensions.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/constants/dimensions.dart';
 
 import 'dart:ui';
 
-import 'package:feature_based_with_mvvm/core/routing/app_routes.dart';
-import 'package:feature_based_with_mvvm/core/routing/navigation_service.dart';
+import 'package:project_2/core/routing/app_routes.dart';
+import 'package:project_2/core/routing/navigation_service.dart';
 
 class LoadingDialog extends StatefulWidget {
   const LoadingDialog({super.key});

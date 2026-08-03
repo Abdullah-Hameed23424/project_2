@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:feature_based_with_mvvm/core/api/api_endpoints.dart';
-import 'package:feature_based_with_mvvm/core/api/network_client.dart';
-import 'package:feature_based_with_mvvm/core/error/error_handler/exception_handler.dart';
+import 'package:project_2/core/api/api_endpoints.dart';
+import 'package:project_2/core/api/network_client.dart';
+import 'package:project_2/core/error/error_handler/exception_handler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part './template_feature_state.dart';

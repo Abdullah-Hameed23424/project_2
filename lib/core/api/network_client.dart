@@ -1,5 +1,5 @@
-import 'package:feature_based_with_mvvm/core/config/app_config.dart';
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
+import 'package:project_2/core/config/app_config.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
+import 'package:project_2/core/constants/app_colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class AppLoading extends StatelessWidget {

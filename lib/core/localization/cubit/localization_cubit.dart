@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:feature_based_with_mvvm/core/api/network_client.dart';
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
+import 'package:project_2/core/api/network_client.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 import 'package:flutter/material.dart';
 
 part 'localization_state.dart';

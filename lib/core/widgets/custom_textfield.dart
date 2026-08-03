@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_icons.dart';
-import 'package:feature_based_with_mvvm/core/constants/dimensions.dart';
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/constants/app_icons.dart';
+import 'package:project_2/core/constants/dimensions.dart';
+import 'package:project_2/core/theme/app_theme.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;

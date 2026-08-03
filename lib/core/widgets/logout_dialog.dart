@@ -1,13 +1,13 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:feature_based_with_mvvm/modules/template_feature/cubit/template_feature_cubit.dart';
+import 'package:project_2/modules/template_feature/cubit/template_feature_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:feature_based_with_mvvm/core/localization/language_constraints.dart';
-import 'package:feature_based_with_mvvm/core/routing/app_routes.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
+import 'package:project_2/core/routing/app_routes.dart';
 
-import 'package:feature_based_with_mvvm/core/services/snackbar_service.dart';
-import 'package:feature_based_with_mvvm/core/widgets/confirmation_dialog.dart';
-import 'package:feature_based_with_mvvm/core/widgets/loading_dialog.dart';
+import 'package:project_2/core/services/snackbar_service.dart';
+import 'package:project_2/core/widgets/confirmation_dialog.dart';
+import 'package:project_2/core/widgets/loading_dialog.dart';
 
 class LogoutDialog extends StatefulWidget {
   const LogoutDialog({super.key});

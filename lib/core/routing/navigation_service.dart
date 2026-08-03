@@ -1,4 +1,4 @@
-import 'package:feature_based_with_mvvm/core/routing/app_route_observer.dart';
+import 'package:project_2/core/routing/app_route_observer.dart';
 import 'package:flutter/material.dart';
 
 /// [NavigationService]

@@ -1,22 +1,22 @@
 import 'dart:async';
 import 'dart:developer';
-import 'package:feature_based_with_mvvm/core/helper/cache_helper.dart';
+import 'package:project_2/core/helper/cache_helper.dart';
 import 'package:flutter/foundation.dart';
 
-import 'package:feature_based_with_mvvm/core/api/network_client.dart';
+import 'package:project_2/core/api/network_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/error/error_reporter/error_reporter.dart';
-import 'package:feature_based_with_mvvm/core/localization/language_constraints.dart';
-import 'package:feature_based_with_mvvm/core/routing/app_routes.dart';
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
-import 'package:feature_based_with_mvvm/core/routing/navigation_service.dart';
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
-import 'package:feature_based_with_mvvm/core/utils/device_type.dart';
-import 'package:feature_based_with_mvvm/core/localization/cubit/localization_cubit.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/error/error_reporter/error_reporter.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
+import 'package:project_2/core/routing/app_routes.dart';
+import 'package:project_2/core/theme/app_theme.dart';
+import 'package:project_2/core/routing/navigation_service.dart';
+import 'package:project_2/core/storage/app_storage.dart';
+import 'package:project_2/core/utils/device_type.dart';
+import 'package:project_2/core/localization/cubit/localization_cubit.dart';
 
 import 'package:sentry/sentry.dart';
 

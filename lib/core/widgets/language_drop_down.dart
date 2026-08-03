@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_icons.dart';
-import 'package:feature_based_with_mvvm/core/localization/cubit/localization_cubit.dart';
-import 'package:feature_based_with_mvvm/core/localization/language_constraints.dart';
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/constants/app_icons.dart';
+import 'package:project_2/core/localization/cubit/localization_cubit.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
+import 'package:project_2/core/theme/app_theme.dart';
 
 class LanguageDropDown extends StatefulWidget {
   const LanguageDropDown({super.key});

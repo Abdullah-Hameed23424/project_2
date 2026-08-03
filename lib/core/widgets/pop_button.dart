@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:feature_based_with_mvvm/core/constants/dimensions.dart';
+import 'package:project_2/core/constants/dimensions.dart';
 
 class PopButton extends StatelessWidget {
   const PopButton({

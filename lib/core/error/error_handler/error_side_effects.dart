@@ -1,6 +1,6 @@
-import 'package:feature_based_with_mvvm/core/error/error_handler/app_error_type.dart';
-import 'package:feature_based_with_mvvm/core/error/error_reporter/error_reporter.dart';
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
+import 'package:project_2/core/error/error_handler/app_error_type.dart';
+import 'package:project_2/core/error/error_reporter/error_reporter.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 
 /// [ErrorSideEffects]
 /// Handles side effects based on the classified error type.

@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:feature_based_with_mvvm/core/config/app_config.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/widgets/app_shimmer.dart';
+import 'package:project_2/core/config/app_config.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/widgets/app_shimmer.dart';
 
 class CachedImage extends StatelessWidget {
   const CachedImage(

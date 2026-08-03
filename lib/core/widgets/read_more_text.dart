@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/theme/app_theme.dart';
 
 class ReadMoreText extends StatefulWidget {
   final String text;

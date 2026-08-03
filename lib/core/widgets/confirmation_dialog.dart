@@ -1,8 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/constants/dimensions.dart';
-import 'package:feature_based_with_mvvm/core/localization/language_constraints.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/constants/dimensions.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 
 enum ConfirmationStatus { info, success, warning, danger }
 

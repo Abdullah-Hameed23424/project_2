@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:feature_based_with_mvvm/core/constants/dimensions.dart';
-import 'package:feature_based_with_mvvm/core/widgets/shimmer_card.dart';
+import 'package:project_2/core/constants/dimensions.dart';
+import 'package:project_2/core/widgets/shimmer_card.dart';
 
 class CommonRequestShimmer extends StatelessWidget {
   final bool showButtons;

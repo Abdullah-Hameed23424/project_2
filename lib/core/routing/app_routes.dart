@@ -1,6 +1,6 @@
-import 'package:feature_based_with_mvvm/core/routing/navigation_service.dart';
-import 'package:feature_based_with_mvvm/core/routing/routes.dart';
-import 'package:feature_based_with_mvvm/modules/template_feature/view/screens/template_feature_screen.dart';
+import 'package:project_2/core/routing/navigation_service.dart';
+import 'package:project_2/core/routing/routes.dart';
+import 'package:project_2/modules/template_feature/view/screens/template_feature_screen.dart';
 import 'package:flutter/material.dart';
 
 /// [AppRoutes]

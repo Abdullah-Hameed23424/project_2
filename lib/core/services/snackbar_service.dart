@@ -1,4 +1,4 @@
-import 'package:feature_based_with_mvvm/core/routing/navigation_service.dart';
+import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';

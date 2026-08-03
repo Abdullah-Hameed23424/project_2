@@ -1,5 +1,5 @@
-import 'package:feature_based_with_mvvm/core/error/error_handler/app_error_type.dart';
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
+import 'package:project_2/core/error/error_handler/app_error_type.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 
 /// [ErrorLocalizer]
 /// Provides localized error messages based on the [AppErrorType].

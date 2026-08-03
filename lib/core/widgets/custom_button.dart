@@ -1,9 +1,9 @@
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
+import 'package:project_2/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/constants/dimensions.dart';
-import 'package:feature_based_with_mvvm/core/widgets/app_loading.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/constants/dimensions.dart';
+import 'package:project_2/core/widgets/app_loading.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;

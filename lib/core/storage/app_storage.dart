@@ -1,5 +1,5 @@
-import 'package:feature_based_with_mvvm/core/helper/cache_helper.dart';
-import 'package:feature_based_with_mvvm/core/helper/secure_storage_helper.dart';
+import 'package:project_2/core/helper/cache_helper.dart';
+import 'package:project_2/core/helper/secure_storage_helper.dart';
 
 class AppStorage {
   /// [token]

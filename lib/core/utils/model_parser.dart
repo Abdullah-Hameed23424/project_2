@@ -1,4 +1,4 @@
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 
 /// [MODEL_PARSER]
 /// This class is responsible for parsing and converting dynamic values into specific data types.

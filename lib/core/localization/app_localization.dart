@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:feature_based_with_mvvm/core/localization/language_constraints.dart'
+import 'package:project_2/core/localization/language_constraints.dart'
     as AppConstants;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:feature_based_with_mvvm/core/error/error_handler/error_classifier.dart';
-import 'package:feature_based_with_mvvm/core/error/error_handler/error_localizer.dart';
-import 'package:feature_based_with_mvvm/core/error/error_handler/error_side_effects.dart';
+import 'package:project_2/core/error/error_handler/error_classifier.dart';
+import 'package:project_2/core/error/error_handler/error_localizer.dart';
+import 'package:project_2/core/error/error_handler/error_side_effects.dart';
 
 /// [ErrorHandler]
 /// Handles errors by classifying them, executing side effects, and returning localized messages.

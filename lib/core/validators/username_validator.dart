@@ -1,4 +1,4 @@
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 
 /// This map for translation
 const Map<String, Map<String, String>> messages = {

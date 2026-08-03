@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:feature_based_with_mvvm/core/constants/dimensions.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_images.dart';
-import 'package:feature_based_with_mvvm/core/localization/language_constraints.dart';
-import 'package:feature_based_with_mvvm/core/widgets/custom_button.dart';
+import 'package:project_2/core/constants/dimensions.dart';
+import 'package:project_2/core/constants/app_images.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
+import 'package:project_2/core/widgets/custom_button.dart';
 
 class TryAgain extends StatelessWidget {
   const TryAgain({

@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:feature_based_with_mvvm/core/error/error_reporter/error_context.dart';
-import 'package:feature_based_with_mvvm/core/routing/app_route_observer.dart';
-import 'package:feature_based_with_mvvm/core/routing/navigation_service.dart';
-import 'package:feature_based_with_mvvm/core/storage/app_storage.dart';
+import 'package:project_2/core/error/error_reporter/error_context.dart';
+import 'package:project_2/core/routing/app_route_observer.dart';
+import 'package:project_2/core/routing/navigation_service.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:sentry/sentry.dart';
 

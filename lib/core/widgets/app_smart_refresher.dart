@@ -1,8 +1,8 @@
-import 'package:feature_based_with_mvvm/core/theme/app_theme.dart';
+import 'package:project_2/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:feature_based_with_mvvm/core/constants/app_colors.dart';
-import 'package:feature_based_with_mvvm/core/widgets/app_loading.dart';
+import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class AppSmartRefresher extends StatelessWidget {
