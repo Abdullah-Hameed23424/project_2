@@ -62,7 +62,7 @@ class LanguageDialog extends StatelessWidget {
                 'اختر اللغة',
                 style: context.headlineSmall14.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: AppColors.black,
+                  color: AppColors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -111,7 +111,7 @@ class LanguageDialog extends StatelessWidget {
                 child: Container(
                   height: 48.h,
                   decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.secondaryGrey),
+                    border: Border.all(color: AppColors.white),
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: TextButton(
@@ -125,7 +125,7 @@ class LanguageDialog extends StatelessWidget {
                       'إلغاء',
                       style: context.headlineSmall14.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: AppColors.grey,
+                        color: AppColors.white,
                       ),
                     ),
                   ),
@@ -178,14 +178,14 @@ class LanguageDialog extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: isSelected
                               ? AppColors.primary
-                              : AppColors.grey,
+                              : AppColors.white,
                         ),
                       ),
                       SizedBox(height: 2.h),
                       Text(
                         subtitle,
                         style: context.headlineSmall14.copyWith(
-                          color: AppColors.grey,
+                          color: AppColors.white,
                         ),
                       ),
                     ],

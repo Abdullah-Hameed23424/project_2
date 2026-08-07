@@ -103,6 +103,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       data: ThemeData(colorScheme: ColorScheme.fromSwatch()),
       child: TextFormField(
         textDirection: widget.textDirection,
+        textAlign: widget.textAlign ?? TextAlign.start,
         enabled: widget.enabled,
         onChanged: widget.onChanged,
         onEditingComplete: widget.onEditingComplete,
@@ -112,7 +113,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ? TextInputAction.next
             : widget.textInputAction,
         controller: widget.controller,
-        cursorColor: AppColors.primaryBase,
+        cursorColor: AppColors.primary,
         cursorHeight: Dimensions.autoSize(20),
         inputFormatters: widget.inputFormatters,
         keyboardType: widget.keyboardType,
@@ -131,7 +132,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           alignLabelWithHint: true,
           labelText: widget.label,
           floatingLabelStyle: context.headlineSmall14.copyWith(
-            color: widget.labelFloatingColor ?? AppColors.primaryBase,
+            color: widget.labelFloatingColor ?? AppColors.primary,
             fontSize: Dimensions.autoSize(14),
           ),
           labelStyle: context.headlineSmall14.copyWith(
@@ -149,7 +150,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     style:
                         widget.errorStyle ??
                         context.headlineSmall14.copyWith(
-                          color: AppColors.redShadeDeep,
+                          color: AppColors.white,
                         ),
                     textAlign: TextAlign.center,
                   ),
@@ -157,7 +158,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               : null,
           errorStyle:
               widget.errorStyle ??
-              context.headlineSmall14.copyWith(color: AppColors.redShadeDeep),
+              context.headlineSmall14.copyWith(color: AppColors.white),
           enabled: true,
           hintText: widget.hintText,
           hintStyle:
@@ -183,10 +184,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 )
               : widget.suffixIcon,
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: AppColors.primaryBase,
-              width: 1,
-            ),
+            borderSide: const BorderSide(color: AppColors.primary, width: 1),
             borderRadius: BorderRadius.circular(widget.radius),
           ),
           border: OutlineInputBorder(

@@ -11,7 +11,7 @@ class ErrorLocalizer {
       AppErrorType.sendTimeout: 'انتهت مهلة الاتصال',
       AppErrorType.receiveTimeout: 'الخادم غير متاح ):',
       AppErrorType.serverDown: 'الخادم غير متوفر حالياً ):',
-      AppErrorType.serverError: 'حدث خطأ في المخدّم ):',
+      AppErrorType.serverError: 'حدث خطأ في المخدّم ):', 
       AppErrorType.unauthorized: 'الوصول غير مصرح به',
       AppErrorType.cancelled: 'تم إلغاء الطلب',
       AppErrorType.internet: 'تحقق من اتصالك بالإنترنت',

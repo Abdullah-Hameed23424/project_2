@@ -35,7 +35,7 @@ class CachedImage extends StatelessWidget {
         height: height,
         child:
             errorWidget ??
-            Icon(Icons.error_outline, color: AppColors.primaryBase),
+            Icon(Icons.error_outline, color: AppColors.primary),
       );
     }
 
@@ -69,7 +69,7 @@ class CachedImage extends StatelessWidget {
           fit: fit,
           errorBuilder: (context, error, stackTrace) =>
               errorWidget ??
-              Icon(Icons.error_outline, color: AppColors.primaryBase),
+              Icon(Icons.error_outline, color: AppColors.primary),
         ),
       );
     } else if (imageUrl.toLowerCase().endsWith('.svg')) {
@@ -113,7 +113,7 @@ class CachedImage extends StatelessWidget {
         ),
         errorWidget: (context, url, error) =>
             errorWidget ??
-            Icon(Icons.error_outline, color: AppColors.primaryBase),
+            Icon(Icons.error_outline, color: AppColors.primary),
       );
     }
 

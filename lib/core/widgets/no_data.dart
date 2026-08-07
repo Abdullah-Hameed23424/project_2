@@ -43,7 +43,7 @@ class _NoDataState extends State<NoData> with SingleTickerProviderStateMixin {
             animation: _animation,
             builder: (context, _) {
               return Image.asset(
-                AppImages.testImage,
+                AppImages.appLogo,
                 height:
                     Dimensions.autoSize(120) +
                     (Dimensions.autoSize(7) * _animation.value),
@@ -53,9 +53,7 @@ class _NoDataState extends State<NoData> with SingleTickerProviderStateMixin {
           const SizedBox(width: double.infinity),
           Text(
             translate('no_data', context),
-            style: context.headlineSmall14.copyWith(
-              color: AppColors.primaryBase,
-            ),
+            style: context.headlineSmall14.copyWith(color: AppColors.primary),
           ),
         ],
       ),

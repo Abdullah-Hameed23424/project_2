@@ -1,5 +1,6 @@
 /// [AppImages]
 /// Contains the paths to the image files used in the app.
 class AppImages {
-  static const String testImage = 'assets/image/gb.svg';
+  // [SplashScreen]
+  static const String appLogo = 'assets/images/domigLogo.png';
 }

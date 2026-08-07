@@ -30,7 +30,7 @@ class TryAgain extends StatelessWidget {
           children: [
             withImage
                 ? Image.asset(
-                    AppImages.testImage,
+                    AppImages.appLogo,
                     width: small
                         ? Dimensions.autoSize(125)
                         : Dimensions.autoSize(215),

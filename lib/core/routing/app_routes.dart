@@ -1,6 +1,7 @@
 import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:project_2/core/routing/routes.dart';
-import 'package:project_2/modules/template_feature/view/screens/template_feature_screen.dart';
+import 'package:project_2/modules/auth/view/screens/login_screen.dart';
+import 'package:project_2/modules/startup/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 /// [AppRoutes]
@@ -9,7 +10,10 @@ class AppRoutes {
   /// [getRoutes]
   /// Returns a map of route names to their corresponding widget builders.
   static Map<String, WidgetBuilder> getRoutes() {
-    return {Routes.testScreen: (_) => const TemplateFeatureScreen()};
+    return {
+      Routes.splashScreen: (_) => const SplashScreen(),
+      Routes.loginScreen: (_) => const LoginScreen(),
+    };
   }
 
   /// [onGenerateRoute]
@@ -31,7 +35,11 @@ class AppRoutes {
   /// [Navigation Methods]
   /// A set of static methods for navigating between screens in the application.
   static Future<dynamic>? toSplashScreen() {
-    return NavigationService.navigateAndRemoveUntil(Routes.testScreen);
+    return NavigationService.navigateAndRemoveUntil(Routes.splashScreen);
+  }
+
+  static Future<dynamic>? toLoginScreen() {
+    return NavigationService.navigateAndRemoveUntil(Routes.loginScreen);
   }
 
   /// NOTE:

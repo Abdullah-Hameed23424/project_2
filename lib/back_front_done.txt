@@ -1,10 +1,11 @@
-Hayy/
-    ├── Home - CAT/
-    │   └── home/
-    │       ├── making featured_services icon actual icon --back-end
-    │       ├── fill <ongoingRequests> by data --back-end
-    │       ├── add & fill <preferred_services> by data --back-end
-    │       └── add advertisment to response --back-end
+⁡⁣⁢⁣Domiq⁡ /
+    ├── api-category/
+    │   ├── api-name/
+    │   │   ├── edits
+    │   │   └── edits
+    │   └── api-name/
+    │       ├── edits
+    │       └── edits
     ├── api-category/
     │   ├── api-name/
     │   │   ├── edits

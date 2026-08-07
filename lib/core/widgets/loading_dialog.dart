@@ -70,7 +70,7 @@ class LoadingDialogWidget extends StatelessWidget {
                 child: const CircularProgressIndicator(
                   strokeWidth: 3,
                   valueColor: AlwaysStoppedAnimation<Color>(
-                    AppColors.primaryBase,
+                    AppColors.white,
                   ),
                 ),
               ),

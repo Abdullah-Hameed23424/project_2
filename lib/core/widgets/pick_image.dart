@@ -22,12 +22,12 @@ class PickImageBottomSheet extends StatelessWidget {
             ),
             leading: const Icon(
               Icons.photo_library,
-              color: AppColors.primaryBase,
+              color: AppColors.primary,
             ),
             title: Text(
               'اختر من المعرض',
               style: context.headlineSmall14.copyWith(
-                color: AppColors.primaryBase,
+                color: AppColors.primary,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -39,12 +39,12 @@ class PickImageBottomSheet extends StatelessWidget {
           ListTile(
             leading: const Icon(
               Icons.photo_camera,
-              color: AppColors.primaryBase,
+              color: AppColors.primary,
             ),
             title: Text(
               'التقط صورة',
               style: context.headlineSmall14.copyWith(
-                color: AppColors.primaryBase,
+                color: AppColors.primary,
                 fontWeight: FontWeight.bold,
               ),
             ),

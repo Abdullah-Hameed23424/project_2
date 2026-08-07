@@ -63,7 +63,7 @@ class SigninRequiredDialog extends StatelessWidget {
                 'تسجيل الدخول مطلوب',
                 style: context.headlineSmall14.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: AppColors.black,
+                  color: AppColors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -73,7 +73,7 @@ class SigninRequiredDialog extends StatelessWidget {
               Text(
                 'يجب عليك تسجيل الدخول للقيام بهذا الإجراء',
                 style: context.headlineSmall14.copyWith(
-                  color: AppColors.grey,
+                  color: AppColors.white,
                   height: 1.5,
                 ),
                 textAlign: TextAlign.center,
@@ -87,7 +87,7 @@ class SigninRequiredDialog extends StatelessWidget {
                     child: Container(
                       height: 48.h,
                       decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.secondaryGrey),
+                        border: Border.all(color: AppColors.white),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: TextButton(
@@ -101,7 +101,7 @@ class SigninRequiredDialog extends StatelessWidget {
                           'إلغاء',
                           style: context.headlineSmall14.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: AppColors.grey,
+                            color: AppColors.white,
                           ),
                         ),
                       ),

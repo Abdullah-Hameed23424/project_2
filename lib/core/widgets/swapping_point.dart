@@ -63,7 +63,7 @@ class _SwappingPointsState extends State<SwappingPoints> {
             decoration: BoxDecoration(
               color: index == currentIndex
                   ? (widget.activeColor ?? AppColors.primary)
-                  : AppColors.grey,
+                  : AppColors.white,
               borderRadius: BorderRadius.circular(50),
             ),
           ),

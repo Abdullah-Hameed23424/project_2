@@ -58,13 +58,13 @@ class DeleteDialog extends StatelessWidget {
                   width: 80.w,
                   height: 80.w,
                   decoration: BoxDecoration(
-                    color: AppColors.redShadeDeep.withOpacity(0.1),
+                    color: AppColors.white.withOpacity(0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     Icons.delete_forever_rounded,
                     size: 40.sp,
-                    color: AppColors.redShadeDeep,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -73,7 +73,7 @@ class DeleteDialog extends StatelessWidget {
                 title,
                 style: context.headlineSmall14.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: AppColors.black,
+                  color: AppColors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -81,7 +81,7 @@ class DeleteDialog extends StatelessWidget {
               Text(
                 content,
                 style: context.headlineSmall14.copyWith(
-                  color: AppColors.grey,
+                  color: AppColors.white,
                   height: 1.5,
                 ),
                 textAlign: TextAlign.center,
@@ -93,7 +93,7 @@ class DeleteDialog extends StatelessWidget {
                     child: Container(
                       height: 48.h,
                       decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.secondaryGrey),
+                        border: Border.all(color: AppColors.white),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: TextButton(
@@ -107,7 +107,7 @@ class DeleteDialog extends StatelessWidget {
                           'إلغاء',
                           style: context.headlineSmall14.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: AppColors.grey,
+                            color: AppColors.white,
                           ),
                         ),
                       ),
@@ -120,8 +120,8 @@ class DeleteDialog extends StatelessWidget {
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            AppColors.redShadeDeep,
-                            AppColors.redShadeDeep.withOpacity(0.8),
+                            AppColors.white,
+                            AppColors.white.withOpacity(0.8),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -129,7 +129,7 @@ class DeleteDialog extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12.r),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.redShadeDeep.withOpacity(0.3),
+                            color: AppColors.white.withOpacity(0.3),
                             blurRadius: 8,
                             offset: const Offset(0, 4),
                           ),

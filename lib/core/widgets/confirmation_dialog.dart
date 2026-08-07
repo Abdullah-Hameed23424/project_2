@@ -173,7 +173,7 @@ class ConfirmationDialog extends StatelessWidget {
                           cancelText ?? translate('cancel_btn', context),
                           style: TextStyle(
                             fontFamily: 'Tajawal',
-                            color: AppColors.black,
+                            color: AppColors.white,
                             fontSize: Dimensions.autoSize(16),
                             fontWeight: FontWeight.w400,
                           ),

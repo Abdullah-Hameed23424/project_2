@@ -36,7 +36,7 @@ class AppConfig {
   static Duration animationDelay(int multibleBy, {int baseDelay = 100}) =>
       Duration(milliseconds: baseDelay * multibleBy);
   static const Cubic animationCurve = Curves.easeInOut;
-  static const String defaultFontFamily = 'Outfit';
+  static const String defaultFontFamily = 'Tajawal';
   static const String defaultLocale = 'ar';
 
   /// Check if running in debug mode

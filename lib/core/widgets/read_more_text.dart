@@ -41,13 +41,13 @@ class ReadMoreTextState extends State<ReadMoreText> {
         context.headlineSmall14.copyWith(
           height: 1.4,
           fontSize: 14.sp,
-          color: AppColors.black,
+          color: AppColors.white,
         );
 
     final actionStyle =
         widget.actionTextStyle ??
         baseTextStyle.copyWith(
-          color: AppColors.primaryBase,
+          color: AppColors.primary,
           fontWeight: FontWeight.bold,
         );
 

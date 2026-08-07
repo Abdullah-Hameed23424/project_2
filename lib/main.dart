@@ -12,6 +12,7 @@ import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/error/error_reporter/error_reporter.dart';
 import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
+import 'package:project_2/core/routing/routes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:project_2/core/storage/app_storage.dart';
@@ -110,14 +111,14 @@ class MyApp extends StatelessWidget {
                   navigatorObservers: [NavigationService.routeObserver],
                   theme: AppTheme.lightTheme(context),
                   debugShowCheckedModeBanner: false,
-                  locale: cubit.appLocale,
+                  locale: const Locale('en'), //cubit.appLocale,
                   localizationsDelegates: localizationsDelegates,
                   supportedLocales: _buildSupportedLocales(),
                   routes: AppRoutes.getRoutes(),
                   onGenerateRoute: AppRoutes.onGenerateRoute,
                   // home: const CustomerServicesScreen(),
                   // home: const VerificationScreen(),
-                  // initialRoute: Routes.providerNavScreen,
+                  initialRoute: Routes.splashScreen,
                 );
               },
             ),

@@ -52,11 +52,11 @@ class _ImageViewerState extends State<ImageViewer> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        foregroundColor: AppColors.secondaryOrange,
+        foregroundColor: AppColors.white,
         title: _images.length > 1
             ? Text(
                 '${_currentIndex + 1} / ${_images.length}',
-                style: const TextStyle(color: AppColors.secondaryOrange),
+                style: const TextStyle(color: AppColors.white),
               )
             : null,
       ),

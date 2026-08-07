@@ -16,37 +16,44 @@ class AppLocalization {
     return Localizations.of<AppLocalization>(context, AppLocalization)!;
   }
 
-  late Map<String, String> _localizedValues;
+  late Map<String, dynamic> _localizedValues;
 
   Future<void> load() async {
     final String jsonStringValues = await rootBundle.loadString(
       'assets/language/${locale.languageCode}.json',
     );
-    final Map<String, dynamic> mappedJson = json.decode(jsonStringValues);
-    _localizedValues = _flattenMap(mappedJson);
+    _localizedValues = json.decode(jsonStringValues) as Map<String, dynamic>;
   }
 
-  Map<String, String> _flattenMap(
-    Map<String, dynamic> map, [
-    String prefix = '',
-  ]) {
-    final Map<String, String> result = {};
-    map.forEach((key, value) {
-      if (value is Map) {
-        result.addAll(
-          _flattenMap(Map<String, dynamic>.from(value), '$prefix$key.'),
-        );
+  dynamic operator [](String key) => _getValue(key);
+
+  dynamic _getValue(String key) {
+    if (key.isEmpty) return null;
+
+    if (!key.contains('.')) {
+      return _localizedValues[key];
+    }
+
+    dynamic current = _localizedValues;
+    for (final part in key.split('.')) {
+      if (current is Map<String, dynamic> && current.containsKey(part)) {
+        current = current[part];
       } else {
-        result['$prefix$key'] = value.toString();
+        return null;
       }
-    });
-    return result;
+    }
+    return current;
   }
 
   String translate(String key) {
-    // print('key> $key value> ${_localizedValues[key]} ');
-
-    return _localizedValues[key] ?? '{$key} check your key ^-^';
+    final dynamic value = _getValue(key);
+    if (value is String) {
+      return value;
+    }
+    if (value != null) {
+      return value.toString();
+    }
+    return '{$key} check your key ^-^';
   }
 
   static const LocalizationsDelegate<AppLocalization> delegate =

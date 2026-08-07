@@ -47,7 +47,7 @@ class AppSmartRefresher extends StatelessWidget {
                     child: Text(
                       'لا يوجد المزيد...',
                       style: context.headlineSmall14.copyWith(
-                        color: AppColors.primaryBase,
+                        color: AppColors.primary,
                       ),
                     ),
                   ),

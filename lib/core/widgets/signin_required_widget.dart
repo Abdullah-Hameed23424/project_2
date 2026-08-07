@@ -42,7 +42,7 @@ class SigninRequiredWidget extends StatelessWidget {
                 style: context.headlineSmall14.copyWith(
                   fontSize: 22.sp,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.black,
+                  color: AppColors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -52,7 +52,7 @@ class SigninRequiredWidget extends StatelessWidget {
               Text(
                 description,
                 style: context.headlineSmall14.copyWith(
-                  color: AppColors.grey,
+                  color: AppColors.white,
                   height: 1.5,
                 ),
                 textAlign: TextAlign.center,
