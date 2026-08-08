@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 /// Application configuration
 class AppConfig {
   // API Configuration
-  static const String domain = 'https://hayy-back.icrcompany.net';
-  static const String baseUrl = '$domain/api/v1/';
+  static const String domain = 'https://home-maintenance.me';
+  static const String baseUrl = '$domain/api/';
   static const String storageUrl = '$domain/storage/';
   static const int apiTimeout = 30; // seconds
 
@@ -33,8 +33,6 @@ class AppConfig {
   /// * example: animationDelay(3) => delay: 300ms
   /// * baseDelay: the base delay for the animation (default: 100ms)
   static const Duration splashDuration = Duration(seconds: 2);
-  static Duration animationDelay(int multibleBy, {int baseDelay = 100}) =>
-      Duration(milliseconds: baseDelay * multibleBy);
   static const Cubic animationCurve = Curves.easeInOut;
   static const String defaultFontFamily = 'Tajawal';
   static const String defaultLocale = 'ar';

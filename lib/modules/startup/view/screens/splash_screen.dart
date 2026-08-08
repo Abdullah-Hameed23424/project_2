@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project_2/core/config/app_config.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_images.dart';
+import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/theme/app_status_bar_theme.dart';
 import 'package:animate_do/animate_do.dart';
@@ -44,8 +44,8 @@ class SplashScreen extends StatelessWidget {
                     /// Title
                     FadeIn(
                       duration: const Duration(milliseconds: 500),
-                      delay: AppConfig.animationDelay(10),
-                      child: Text('Domig', style: context.titleLarge40),
+                      delay: AppPeriods.animationDelay(10),
+                      child: Text('Domiq', style: context.titleLarge40),
                     ),
                   ],
                 ),

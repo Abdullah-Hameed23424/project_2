@@ -39,15 +39,16 @@ class CustomButton extends StatelessWidget {
     return isLoading
         ? const AppLoading()
         : ElevatedButton.icon(
+            iconAlignment: IconAlignment.end,
             icon: icon,
             label: Text(
               textAlign: TextAlign.center,
               label,
               style:
                   buttonStyle ??
-                  context.headlineSmall14.copyWith(
-                    fontWeight: FontWeight.w500,
+                  context.bodyLarge20.copyWith(
                     color: Colors.white,
+                    fontWeight: FontWeight.w500,
                   ),
             ),
             onPressed: isEnabled ? onPressed : null,

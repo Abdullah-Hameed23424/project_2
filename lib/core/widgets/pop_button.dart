@@ -31,9 +31,7 @@ class PopButton extends StatelessWidget {
           onTap!();
           return;
         }
-
         final navigator = Navigator.of(context, rootNavigator: true);
-
         if (navigator.canPop()) {
           navigator.pop();
         } else {

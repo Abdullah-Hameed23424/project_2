@@ -3,6 +3,7 @@ import 'package:project_2/core/localization/app_localization.dart';
 import 'package:project_2/core/localization/custom_delegate.dart';
 import 'package:project_2/core/localization/language_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 String translate(String key, BuildContext context, {List<String>? args}) {
   String translation = AppLocalization.of(context).translate(key);
@@ -22,8 +23,8 @@ final List<LanguageModel> languages = [
 
 List<LocalizationsDelegate<dynamic>> localizationsDelegates = [
   AppLocalization.delegate,
-  // GlobalMaterialLocalizations.delegate, // TODO need to check if this is necessary and fix the error with it
-  // GlobalWidgetsLocalizations.delegate,
-  // GlobalCupertinoLocalizations.delegate,
+  GlobalMaterialLocalizations.delegate,
+  GlobalWidgetsLocalizations.delegate,
+  GlobalCupertinoLocalizations.delegate,
   FallbackLocalizationDelegate(),
 ];

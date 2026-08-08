@@ -67,7 +67,6 @@ class _DemoLocalizationsDelegate
   @override
   bool isSupported(Locale locale) {
     final List<String> languageString = [];
-    // AppConstants.
     for (var language in AppConstants.languages) {
       languageString.add(language.languageCode);
     }

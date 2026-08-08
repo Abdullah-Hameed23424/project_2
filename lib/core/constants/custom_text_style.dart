@@ -8,7 +8,7 @@ import 'package:project_2/core/constants/app_colors.dart';
 class CustomTextStyle {
   static final String defaultFontFamily = AppConfig.defaultFontFamily;
 
-  /// [titleLarge] For App Logo
+  /// [title] For App Logo
   static TextStyle get titleLarge => TextStyle(
     color: AppColors.white,
     fontSize: 40.sp,
@@ -27,6 +27,21 @@ class CustomTextStyle {
     color: AppColors.black,
     fontSize: 26.sp,
     fontWeight: FontWeight.w700,
+    fontFamily: defaultFontFamily,
+  );
+
+  /// [body]
+  static TextStyle get bodyLarge => TextStyle(
+    color: AppColors.black,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w400,
+    fontFamily: defaultFontFamily,
+  );
+
+  static TextStyle get bodyMedium => TextStyle(
+    color: AppColors.black,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
     fontFamily: defaultFontFamily,
   );
 

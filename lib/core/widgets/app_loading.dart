@@ -11,9 +11,9 @@ class AppLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: LoadingAnimationWidget.discreteCircle(
-        thirdRingColor: AppColors.white,
-        secondRingColor: AppColors.primary,
-        color: color ?? AppColors.white,
+        thirdRingColor: const Color.fromARGB(255, 89, 155, 255),
+        secondRingColor: const Color.fromARGB(255, 5, 109, 255),
+        color: color ?? AppColors.primaryDark,
         size: size.sp,
       ),
     );

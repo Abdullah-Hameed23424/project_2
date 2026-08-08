@@ -1,6 +1,9 @@
 import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:project_2/core/routing/routes.dart';
+import 'package:project_2/modules/auth/view/screens/forget_passwd_screen.dart';
 import 'package:project_2/modules/auth/view/screens/login_screen.dart';
+import 'package:project_2/modules/auth/view/screens/otp_screen.dart';
+import 'package:project_2/modules/home/view/screens/home_screen.dart';
 import 'package:project_2/modules/startup/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +16,9 @@ class AppRoutes {
     return {
       Routes.splashScreen: (_) => const SplashScreen(),
       Routes.loginScreen: (_) => const LoginScreen(),
+      Routes.forgetPasswdScreen: (_) => const ForgetPasswdScreen(),
+      Routes.otpScreen: (_) => const OtpScreen(),
+      Routes.homeScreen: (_) => const HomeScreen(),
     };
   }
 
@@ -40,6 +46,18 @@ class AppRoutes {
 
   static Future<dynamic>? toLoginScreen() {
     return NavigationService.navigateAndRemoveUntil(Routes.loginScreen);
+  }
+
+  static Future<dynamic>? toForgetPasswdScreen() {
+    return NavigationService.navigateTo(Routes.forgetPasswdScreen);
+  }
+
+  static Future<dynamic>? toOtpScreen() {
+    return NavigationService.navigateTo(Routes.otpScreen);
+  }
+
+  static Future<dynamic>? toHomeScreen() {
+    return NavigationService.navigateAndRemoveUntil(Routes.homeScreen);
   }
 
   /// NOTE:

@@ -16,4 +16,5 @@ class AppColors {
   static const Color bgWhite = Color(0xFFFBFDF9);
   static const Color shadowColor = Colors.black26;
   static const Color black = Colors.black;
+  static const Color errorColor = Color(0xffBA1A1A);
 }

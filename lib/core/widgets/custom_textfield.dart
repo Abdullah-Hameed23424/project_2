@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_icons.dart';
 import 'package:project_2/core/constants/dimensions.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
@@ -102,6 +100,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Theme(
       data: ThemeData(colorScheme: ColorScheme.fromSwatch()),
       child: TextFormField(
+        clipBehavior: Clip.antiAlias,
         textDirection: widget.textDirection,
         textAlign: widget.textAlign ?? TextAlign.start,
         enabled: widget.enabled,
@@ -120,9 +119,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         obscureText: widget.isPassword ? showPassword : false,
         maxLines: widget.maxLines,
         onTap: widget.onTap,
-        style:
-            widget.fieldTextStyle ??
-            context.headlineSmall14.copyWith(color: Colors.black),
+        style: widget.fieldTextStyle ?? context.bodyLarge20,
         showCursor: widget.showCursor,
         enableInteractiveSelection: widget.enableInteractiveSelection,
         readOnly: widget.readOnly,
@@ -131,12 +128,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
           filled: true,
           alignLabelWithHint: true,
           labelText: widget.label,
-          floatingLabelStyle: context.headlineSmall14.copyWith(
+          floatingLabelStyle: context.bodyLarge20.copyWith(
             color: widget.labelFloatingColor ?? AppColors.primary,
-            fontSize: Dimensions.autoSize(14),
           ),
-          labelStyle: context.headlineSmall14.copyWith(
-            fontSize: Dimensions.autoSize(16),
+          labelStyle: context.bodyLarge20.copyWith(
             color: widget.labelColor ?? Colors.grey,
           ),
           prefixIcon: widget.prefixIcon,
@@ -144,26 +139,25 @@ class _CustomTextFieldState extends State<CustomTextField> {
           suffixText: widget.suffixText,
           suffix: widget.suffix,
           error: widget.errorText != null
-              ? Center(
-                  child: Text(
-                    widget.errorText!,
-                    style:
-                        widget.errorStyle ??
-                        context.headlineSmall14.copyWith(
-                          color: AppColors.white,
-                        ),
-                    textAlign: TextAlign.center,
-                  ),
+              ? Text(
+                  widget.errorText!,
+                  style:
+                      widget.errorStyle ??
+                      context.bodyMedium16.copyWith(
+                        color: AppColors.errorColor,
+                      ),
+                  textAlign: TextAlign.start,
                 )
               : null,
           errorStyle:
               widget.errorStyle ??
-              context.headlineSmall14.copyWith(color: AppColors.white),
+              context.bodyMedium16.copyWith(color: AppColors.errorColor),
           enabled: true,
           hintText: widget.hintText,
           hintStyle:
               widget.hintStyle ??
-              context.headlineSmall14.copyWith(color: Colors.grey),
+              context.bodyLarge20.copyWith(color: Colors.grey),
+
           contentPadding: EdgeInsets.symmetric(
             horizontal: Dimensions.autoSize(15),
             vertical: Dimensions.autoSize(14),
@@ -174,12 +168,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     showPassword = !showPassword;
                     setState(() {});
                   },
-                  icon: SvgPicture.asset(
-                    AppIcons.ar,
-                    colorFilter: const ColorFilter.mode(
-                      AppColors.primary,
-                      BlendMode.srcIn,
-                    ),
+                  icon: Icon(
+                    showPassword ? Icons.visibility : Icons.visibility_off,
+                    color: AppColors.primary,
                   ),
                 )
               : widget.suffixIcon,

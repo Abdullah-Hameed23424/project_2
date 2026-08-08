@@ -6,6 +6,11 @@ class Routes {
 
   /// [Auth]
   static const String loginScreen = '/loginScreen';
+  static const String forgetPasswdScreen = '/forgetPasswdScreen';
+  static const String otpScreen = '/otpScreen';
+
+  /// [Home]
+  static const String homeScreen = '/homeScreen';
 }
 
 /// [NOTE]
