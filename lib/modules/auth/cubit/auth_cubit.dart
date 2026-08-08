@@ -7,6 +7,7 @@ import 'package:project_2/core/api/api_endpoints.dart';
 import 'package:project_2/core/api/network_client.dart';
 import 'package:project_2/core/error/error_handler/exception_handler.dart';
 import 'package:project_2/core/storage/app_storage.dart';
+import 'package:project_2/modules/auth/models/otp_model.dart';
 
 part 'auth_state.dart';
 
@@ -56,6 +57,53 @@ class AuthCubit extends Cubit<AuthState> {
       if (isClosed) return;
       logApiName('ForgetPasswd');
       emit(ForgetPasswdError(message: handleError(e, stackTrace: s)));
+    }
+  }
+
+  Future<void> verifyOtp({
+    required String phoneNumber,
+    required String code,
+  }) async {
+    emit(VerifyOtpLoading());
+    try {
+      final response = await NetworkClient.post(
+        url: ApiEndpoints.verifyOtp,
+        data: json.encode({'phone': phoneNumber, 'code': code}),
+      );
+
+      if (isClosed) return;
+      emit(VerifyOtpSuccess(otpResponse: OtpResponse.fromJson(response.data)));
+    } catch (e, s) {
+      if (isClosed) return;
+      logApiName('verifyOtp');
+      emit(VerifyOtpError(message: handleError(e, stackTrace: s)));
+    }
+  }
+
+  Future<void> resetPasswd({
+    required String phoneNumber,
+    required String ticket,
+    required String passwd,
+    required String confirmPasswd,
+  }) async {
+    emit(ResetPasswdLoading());
+    try {
+      await NetworkClient.post(
+        url: ApiEndpoints.resetPasswd,
+        data: json.encode({
+          'phone': phoneNumber,
+          'ticket': ticket,
+          'password': passwd,
+          'password_confirmation': confirmPasswd,
+        }),
+      );
+
+      if (isClosed) return;
+      emit(ResetPasswdSuccess());
+    } catch (e, s) {
+      if (isClosed) return;
+      logApiName('resetPasswd');
+      emit(ResetPasswdError(message: handleError(e, stackTrace: s)));
     }
   }
 }

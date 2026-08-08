@@ -1,10 +1,12 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_sizes.dart' show AppSizes;
 
-class OtpHeader extends StatelessWidget {
-  const OtpHeader({super.key});
+class CustomHeader extends StatelessWidget {
+  final IconData iconData;
+  const CustomHeader({super.key, required this.iconData});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +30,8 @@ class OtpHeader extends StatelessWidget {
         children: <Widget>[
           SizedBox(height: AppSizes.smallSpace),
 
-          Icon(
-            Icons.verified_user_rounded,
-            size: 100.sp,
-            color: AppColors.white,
+          FadeInLeft(
+            child: Icon(iconData, size: 100.sp, color: AppColors.white),
           ),
         ],
       ),

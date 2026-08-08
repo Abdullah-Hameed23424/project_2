@@ -9,11 +9,13 @@ import 'package:project_2/core/theme/app_theme.dart';
 class OtpPinput extends StatelessWidget {
   final TextEditingController otpController;
   final void Function(String code) onCompleted;
+  final bool enable;
 
   OtpPinput({
     super.key,
     required this.otpController,
     required this.onCompleted,
+    required this.enable,
   });
 
   final baseDecoration = BoxDecoration(
@@ -43,6 +45,7 @@ class OtpPinput extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Pinput(
+        enabled: enable,
         separatorBuilder: (index) => SizedBox(width: AppSizes.mediumRadius),
         onSubmitted: onCompleted,
         controller: otpController,

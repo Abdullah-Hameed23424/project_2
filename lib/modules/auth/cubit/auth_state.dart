@@ -43,3 +43,35 @@ final class ForgetPasswdError extends AuthState {
   @override
   List<Object?> get props => [message];
 }
+
+/// [VerifyOtpScreen] @lib/modules/auth/view/screens/verify_otp_screen.dart
+final class VerifyOtpLoading extends AuthState {}
+
+final class VerifyOtpSuccess extends AuthState {
+  final OtpResponse otpResponse;
+  VerifyOtpSuccess({required this.otpResponse});
+
+  @override
+  List<Object?> get props => [otpResponse];
+}
+
+final class VerifyOtpError extends AuthState {
+  final String message;
+  VerifyOtpError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}
+
+/// [ResetPasswdScreen] @lib/modules/auth/view/screens/reset_passwd_screen.dart
+final class ResetPasswdLoading extends AuthState {}
+
+final class ResetPasswdSuccess extends AuthState {}
+
+final class ResetPasswdError extends AuthState {
+  final String message;
+  ResetPasswdError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}

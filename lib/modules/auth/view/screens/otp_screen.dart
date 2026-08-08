@@ -1,13 +1,18 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_shadow.dart';
-import 'package:project_2/core/constants/app_sizes.dart' show AppSizes;
+import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/constants/app_sizes.dart';
+import 'package:project_2/core/routing/app_routes.dart';
+import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/theme/app_theme.dart';
-import 'package:project_2/core/widgets/custom_button.dart';
+import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
+import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
 import 'package:project_2/modules/auth/view/widgets/custom_timer.dart';
-import 'package:project_2/modules/auth/view/widgets/otp_header.dart';
-import 'package:project_2/modules/auth/view/widgets/otp_pinput.dart';
+import 'package:project_2/modules/auth/view/widgets/custom_header.dart';
+import 'package:project_2/modules/auth/view/widgets/otp_form.dart';
 
 class OtpScreen extends StatefulWidget {
   final String phoneNumber;
@@ -40,109 +45,103 @@ class _OtpScreenState extends State<OtpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(leading: const PopButton()),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            const OtpHeader(),
-
-            // Floating Card
-            Transform.translate(
-              offset: const Offset(0, -55),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppSizes.paddingH),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSizes.paddingH,
-                    vertical: AppSizes.paddingV,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.bgWhite,
-                    borderRadius: BorderRadius.circular(AppSizes.mediumRadius),
-                    boxShadow: AppShadow.cardShadow,
-                  ),
-                  child: Form(
-                    key: _otpKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Verification Code',
-                          style: context.headlineLarge30.copyWith(
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: AppSizes.tinySpace),
-                        Text(
-                          'Enter the 4-digit code sent\nto ${widget.phoneNumber}',
-                          style: context.bodyLarge20,
-                          textAlign: TextAlign.center,
-                        ),
-
-                        SizedBox(height: AppSizes.largeSpace),
-                        OtpPinput(
-                          otpController: _otpController,
-                          onCompleted: (code) {},
-                        ),
-
-                        SizedBox(height: AppSizes.xLargeSpace),
-                        CustomButton(label: 'Verify', onPressed: () {}),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            // Footer
-            Column(
+    return BlocProvider<AuthCubit>(
+      create: (context) => AuthCubit(),
+      child: BlocListener<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is VerifyOtpError) {
+            snackBarService.showError(message: state.message);
+          } else if (state is VerifyOtpSuccess) {
+            snackBarService.showSuccess(message: 'Verifying OTP successfully');
+            AppRoutes.toResetPasswdScreen(
+              phoneNumber: widget.phoneNumber,
+              ticket: state.otpResponse.ticket,
+            );
+          }
+          if (state is ForgetPasswdError) {
+            snackBarService.showError(message: state.message);
+          } else if (state is ForgetPasswdSuccess) {
+            snackBarService.showSuccess(message: 'OTP Sent');
+            _timer.start(59);
+          }
+        },
+        child: Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(leading: const PopButton()),
+          body: SingleChildScrollView(
+            child: Column(
               children: <Widget>[
-                ValueListenableBuilder<int>(
-                  valueListenable: _timer.remainingSeconds,
-                  builder: (context, seconds, child) {
-                    return Text.rich(
-                      style: context.headlineMedium18,
-                      TextSpan(
-                        children: <InlineSpan>[
-                          const TextSpan(text: 'Resend code after '),
-                          TextSpan(
-                            text: '00:${seconds.toString().padLeft(2, '0')}',
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+                const CustomHeader(iconData: Icons.verified_user_rounded),
+
+                // Floating Card
+                OtpForm(
+                  otpKey: _otpKey,
+                  widget: widget,
+                  otpController: _otpController,
                 ),
-                SizedBox(height: AppSizes.tinySpace),
-                ValueListenableBuilder(
-                  valueListenable: _timer.remainingSeconds,
-                  builder: (context, seconds, child) {
-                    return TextButton(
-                      onPressed: (seconds != 0)
-                          ? null
-                          : () {
-                              _timer.start(59);
-                              setState(() {});
-                            },
-                      child: Text(
-                        'Resend',
-                        style: context.bodyLarge20.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: (seconds != 0)
-                              ? Colors.grey.shade400
-                              : AppColors.primary,
-                        ),
+
+                // Footer
+                Column(
+                  children: <Widget>[
+                    FadeInLeft(
+                      delay: AppPeriods.animationDelay(6),
+                      child: ValueListenableBuilder<int>(
+                        valueListenable: _timer.remainingSeconds,
+                        builder: (context, seconds, child) {
+                          return Text.rich(
+                            style: context.headlineMedium18,
+                            TextSpan(
+                              children: <InlineSpan>[
+                                const TextSpan(text: 'Resend code after '),
+                                TextSpan(
+                                  text:
+                                      '00:${seconds.toString().padLeft(2, '0')}',
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
-                    );
-                  },
+                    ),
+                    SizedBox(height: AppSizes.tinySpace),
+                    FadeInLeft(
+                      delay: AppPeriods.animationDelay(7),
+                      child: BlocBuilder<AuthCubit, AuthState>(
+                        builder: (context, state) {
+                          return ValueListenableBuilder(
+                            valueListenable: _timer.remainingSeconds,
+                            builder: (context, seconds, child) {
+                              if (state is ForgetPasswdLoading) {
+                                return const AppLoading();
+                              }
+                              return TextButton(
+                                onPressed: (seconds != 0)
+                                    ? null
+                                    : () {
+                                        context.read<AuthCubit>().forgetPasswd(
+                                          phoneNumber: widget.phoneNumber,
+                                        );
+                                      },
+                                child: Text(
+                                  'Resend',
+                                  style: context.bodyLarge20.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    color: (seconds != 0)
+                                        ? Colors.grey.shade400
+                                        : AppColors.primary,
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

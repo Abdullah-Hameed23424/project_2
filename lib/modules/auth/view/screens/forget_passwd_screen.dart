@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
-import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
 import 'package:project_2/modules/auth/view/widgets/forget_passwd_header.dart';
 import 'package:project_2/modules/auth/view/widgets/forget_password_form.dart';
 

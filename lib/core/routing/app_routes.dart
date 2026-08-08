@@ -3,6 +3,7 @@ import 'package:project_2/core/routing/routes.dart';
 import 'package:project_2/modules/auth/view/screens/forget_passwd_screen.dart';
 import 'package:project_2/modules/auth/view/screens/login_screen.dart';
 import 'package:project_2/modules/auth/view/screens/otp_screen.dart';
+import 'package:project_2/modules/auth/view/screens/reset_passwd_screen.dart';
 import 'package:project_2/modules/home/view/screens/home_screen.dart';
 import 'package:project_2/modules/startup/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,16 @@ class AppRoutes {
           builder: (_) => OtpScreen(phoneNumber: phoneNumber),
         );
 
+      case Routes.resetPasswdScreen:
+        final args = settings.arguments as Map;
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => ResetPasswdScreen(
+            phoneNumber: args['phoneNumber'],
+            ticket: args['ticket'],
+          ),
+        );
+
       default:
         return null;
     }
@@ -55,6 +66,16 @@ class AppRoutes {
     return NavigationService.navigateTo(
       Routes.otpScreen,
       arguments: phoneNumber,
+    );
+  }
+
+  static Future<dynamic>? toResetPasswdScreen({
+    required String phoneNumber,
+    required String ticket,
+  }) {
+    return NavigationService.navigateTo(
+      Routes.resetPasswdScreen,
+      arguments: {'phoneNumber': phoneNumber, 'ticket': ticket},
     );
   }
 
