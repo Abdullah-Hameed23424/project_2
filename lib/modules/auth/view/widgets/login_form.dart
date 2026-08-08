@@ -49,7 +49,7 @@ class LoginForm extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: AppColors.bgWhite,
-            borderRadius: BorderRadius.circular(AppSizes.radius),
+            borderRadius: BorderRadius.circular(AppSizes.mediumRadius),
             boxShadow: AppShadow.cardShadow,
           ),
           child: Form(
@@ -75,7 +75,7 @@ class LoginForm extends StatelessWidget {
                   child: CustomTextField(
                     controller: _phoneController,
                     hintText: '9XX XXX XXX',
-                    radius: AppSizes.radius,
+                    radius: AppSizes.mediumRadius,
                     keyboardType: TextInputType.phone,
                     validator: (value) =>
                         PhoneValidator.validate(value, country: isoCode.value),
@@ -97,7 +97,7 @@ class LoginForm extends StatelessWidget {
                   child: CustomTextField(
                     controller: _passwordController,
                     hintText: '••••••••',
-                    radius: AppSizes.radius,
+                    radius: AppSizes.mediumRadius,
                     keyboardType: TextInputType.visiblePassword,
                     isPassword: true,
                     validator: PasswordValidator.validate,

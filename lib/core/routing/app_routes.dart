@@ -17,7 +17,6 @@ class AppRoutes {
       Routes.splashScreen: (_) => const SplashScreen(),
       Routes.loginScreen: (_) => const LoginScreen(),
       Routes.forgetPasswdScreen: (_) => const ForgetPasswdScreen(),
-      Routes.otpScreen: (_) => const OtpScreen(),
       Routes.homeScreen: (_) => const HomeScreen(),
     };
   }
@@ -26,12 +25,12 @@ class AppRoutes {
   /// A method that generates routes based on the provided [RouteSettings].
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      // case Routes.testWithArgsScreen:
-      //   final args = settings.arguments as Map;
-      //   return MaterialPageRoute(
-      //     settings: settings,
-      //     builder: (_) => TestWithArgScreen(parameterOne: args['argumentOne']),
-      //   );
+      case Routes.otpScreen:
+        final phoneNumber = settings.arguments as String;
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => OtpScreen(phoneNumber: phoneNumber),
+        );
 
       default:
         return null;
@@ -52,8 +51,11 @@ class AppRoutes {
     return NavigationService.navigateTo(Routes.forgetPasswdScreen);
   }
 
-  static Future<dynamic>? toOtpScreen() {
-    return NavigationService.navigateTo(Routes.otpScreen);
+  static Future<dynamic>? toOtpScreen({required String phoneNumber}) {
+    return NavigationService.navigateTo(
+      Routes.otpScreen,
+      arguments: phoneNumber,
+    );
   }
 
   static Future<dynamic>? toHomeScreen() {

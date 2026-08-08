@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/dimensions.dart';
 
 class PopButton extends StatelessWidget {
@@ -6,7 +7,7 @@ class PopButton extends StatelessWidget {
     super.key,
     this.iconColor,
     this.onTap,
-    this.color = Colors.black,
+    this.color = AppColors.white,
   });
 
   final Color? iconColor;

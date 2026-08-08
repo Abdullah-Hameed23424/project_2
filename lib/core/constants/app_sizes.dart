@@ -1,10 +1,13 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppSizes {
+  static final double authUpperCardHeight = 340.h;
+
   static final double paddingH = 16.w;
   static final double paddingV = 16.h;
 
-  static final double radius = 12.r;
+  static final double mediumRadius = 12.r;
+  static final double largeRadius = 25.r;
 
   static final double largeIcon = 75.h;
   static final double mediumIcon = 20.h; // TODO for edit later

@@ -45,7 +45,19 @@ class CustomTextStyle {
     fontFamily: defaultFontFamily,
   );
 
-  /// [headline] test style
+  /// [headline]
+  static TextStyle get headlineLarge => TextStyle(
+    color: Colors.black,
+    fontSize: 30.sp,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle get headlineMedium => TextStyle(
+    color: Colors.black,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w400,
+  );
+
   static TextStyle get headlineSmall => TextStyle(
     color: Colors.black,
     fontSize: 14.sp,

@@ -23,7 +23,7 @@ class PhoneNumberPrefix extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color.fromARGB(80, 225, 226, 236),
         borderRadius: BorderRadius.horizontal(
-          left: Radius.circular(AppSizes.radius),
+          left: Radius.circular(AppSizes.mediumRadius),
         ),
       ),
       child: Row(

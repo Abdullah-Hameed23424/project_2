@@ -25,6 +25,8 @@ class AppTheme {
         titleSmall: CustomTextStyle.titleSmall,
         bodyLarge: CustomTextStyle.bodyLarge,
         bodyMedium: CustomTextStyle.bodyMedium,
+        headlineLarge: CustomTextStyle.headlineLarge,
+        headlineMedium: CustomTextStyle.headlineMedium,
       ),
     );
   }
@@ -45,5 +47,7 @@ extension TextThemeExtension on BuildContext {
   TextStyle get bodyMedium16 => textTheme.bodyMedium!;
 
   /// [headline] test style
+  TextStyle get headlineLarge30 => textTheme.headlineLarge!;
+  TextStyle get headlineMedium18 => textTheme.headlineMedium!;
   TextStyle get headlineSmall14 => textTheme.headlineSmall!;
 }

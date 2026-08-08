@@ -62,7 +62,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
       ),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(AppSizes.radius),
+        borderRadius: BorderRadius.circular(AppSizes.mediumRadius),
         boxShadow: AppShadow.cardShadow,
       ),
       child: Form(
@@ -75,7 +75,11 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
                 snackBarService.showError(message: state.message);
               } else if (state is ForgetPasswdSuccess) {
                 snackBarService.showSuccess(message: 'OTP Sent');
-                AppRoutes.toOtpScreen();
+                AppRoutes.toOtpScreen(
+                  phoneNumber:
+                      widget.countryCode.value +
+                      widget._phoneController.text.trim(),
+                );
               }
             },
 
@@ -92,7 +96,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
                       child: CustomTextField(
                         controller: widget._phoneController,
                         hintText: '9XX XXX XXX',
-                        radius: AppSizes.radius,
+                        radius: AppSizes.mediumRadius,
                         keyboardType: TextInputType.phone,
                         validator: (value) => PhoneValidator.validate(
                           value,

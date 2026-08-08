@@ -59,7 +59,7 @@ class CustomButton extends StatelessWidget {
                   size ??
                   Size(
                     MediaQuery.sizeOf(context).width,
-                    Dimensions.autoSize(48),
+                    Dimensions.autoSize(58),
                   ),
               backgroundColor: backgroundColor ?? AppColors.primary,
               disabledBackgroundColor: const Color(0XFFAEAEEA),
