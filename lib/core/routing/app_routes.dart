@@ -1,9 +1,12 @@
 import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:project_2/core/routing/routes.dart';
+import 'package:project_2/modules/auth/view/screens/complete_sign_up_screen.dart';
 import 'package:project_2/modules/auth/view/screens/forget_passwd_screen.dart';
+import 'package:project_2/modules/auth/view/screens/helper/otp_type.dart';
 import 'package:project_2/modules/auth/view/screens/login_screen.dart';
 import 'package:project_2/modules/auth/view/screens/otp_screen.dart';
 import 'package:project_2/modules/auth/view/screens/reset_passwd_screen.dart';
+import 'package:project_2/modules/auth/view/screens/sign_up_screen.dart';
 import 'package:project_2/modules/home/view/screens/home_screen.dart';
 import 'package:project_2/modules/startup/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +21,8 @@ class AppRoutes {
       Routes.splashScreen: (_) => const SplashScreen(),
       Routes.loginScreen: (_) => const LoginScreen(),
       Routes.forgetPasswdScreen: (_) => const ForgetPasswdScreen(),
+      Routes.signUpScreen: (_) => const SignUpScreen(),
+
       Routes.homeScreen: (_) => const HomeScreen(),
     };
   }
@@ -27,17 +32,28 @@ class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.otpScreen:
-        final phoneNumber = settings.arguments as String;
+        final args = settings.arguments as Map;
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => OtpScreen(phoneNumber: phoneNumber),
+          builder: (_) => OtpScreen(
+            phoneNumber: args['phoneNumber'],
+            otpType: args['otpType'],
+          ),
         );
-
       case Routes.resetPasswdScreen:
         final args = settings.arguments as Map;
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => ResetPasswdScreen(
+            phoneNumber: args['phoneNumber'],
+            ticket: args['ticket'],
+          ),
+        );
+      case Routes.completeSignUpScreen:
+        final args = settings.arguments as Map;
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => CompleteSignUpScreen(
             phoneNumber: args['phoneNumber'],
             ticket: args['ticket'],
           ),
@@ -58,14 +74,31 @@ class AppRoutes {
     return NavigationService.navigateAndRemoveUntil(Routes.loginScreen);
   }
 
+  static Future<dynamic>? toSignUpScreen() {
+    return NavigationService.navigateTo(Routes.signUpScreen);
+  }
+
+  static Future<dynamic>? toCompleteSignUpScreen({
+    required String phoneNumber,
+    required String ticket,
+  }) {
+    return NavigationService.navigateTo(
+      Routes.completeSignUpScreen,
+      arguments: {'phoneNumber': phoneNumber, 'ticket': ticket},
+    );
+  }
+
   static Future<dynamic>? toForgetPasswdScreen() {
     return NavigationService.navigateTo(Routes.forgetPasswdScreen);
   }
 
-  static Future<dynamic>? toOtpScreen({required String phoneNumber}) {
+  static Future<dynamic>? toOtpScreen({
+    required String phoneNumber,
+    required OtpType otpType,
+  }) {
     return NavigationService.navigateTo(
       Routes.otpScreen,
-      arguments: phoneNumber,
+      arguments: {'phoneNumber': phoneNumber, 'otpType': otpType},
     );
   }
 

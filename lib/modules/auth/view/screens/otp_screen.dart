@@ -10,13 +10,19 @@ import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
+import 'package:project_2/modules/auth/view/screens/helper/otp_type.dart';
 import 'package:project_2/modules/auth/view/widgets/custom_timer.dart';
 import 'package:project_2/modules/auth/view/widgets/custom_header.dart';
 import 'package:project_2/modules/auth/view/widgets/otp_form.dart';
 
 class OtpScreen extends StatefulWidget {
+  final OtpType otpType;
   final String phoneNumber;
-  const OtpScreen({super.key, required this.phoneNumber});
+  const OtpScreen({
+    super.key,
+    required this.phoneNumber,
+    required this.otpType,
+  });
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
@@ -53,16 +59,28 @@ class _OtpScreenState extends State<OtpScreen> {
             snackBarService.showError(message: state.message);
           } else if (state is VerifyOtpSuccess) {
             snackBarService.showSuccess(message: 'Verifying OTP successfully');
-            AppRoutes.toResetPasswdScreen(
-              phoneNumber: widget.phoneNumber,
-              ticket: state.otpResponse.ticket,
-            );
+            if (widget.otpType == OtpType.forgetPasswd) {
+              AppRoutes.toResetPasswdScreen(
+                phoneNumber: widget.phoneNumber,
+                ticket: state.otpResponse.ticket,
+              );
+            } else if (widget.otpType == OtpType.register) {
+              AppRoutes.toCompleteSignUpScreen(
+                phoneNumber: widget.phoneNumber,
+                ticket: state.otpResponse.ticket,
+              );
+            }
           }
           if (state is ForgetPasswdError) {
             snackBarService.showError(message: state.message);
           } else if (state is ForgetPasswdSuccess) {
             snackBarService.showSuccess(message: 'OTP Sent');
             _timer.start(59);
+          }
+          if (state is SignUpError) {
+            snackBarService.showError(message: state.message);
+          } else if (state is SignUpSuccess) {
+            snackBarService.showSuccess(message: 'OTP Sent');
           }
         },
         child: Scaffold(
@@ -108,6 +126,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       delay: AppPeriods.animationDelay(7),
                       child: BlocBuilder<AuthCubit, AuthState>(
                         builder: (context, state) {
+                          final AuthCubit cubit = context.read<AuthCubit>();
                           return ValueListenableBuilder(
                             valueListenable: _timer.remainingSeconds,
                             builder: (context, seconds, child) {
@@ -118,9 +137,17 @@ class _OtpScreenState extends State<OtpScreen> {
                                 onPressed: (seconds != 0)
                                     ? null
                                     : () {
-                                        context.read<AuthCubit>().forgetPasswd(
-                                          phoneNumber: widget.phoneNumber,
-                                        );
+                                        if (widget.otpType ==
+                                            OtpType.forgetPasswd) {
+                                          cubit.forgetPasswd(
+                                            phoneNumber: widget.phoneNumber,
+                                          );
+                                        } else if (widget.otpType ==
+                                            OtpType.register) {
+                                          cubit.signUp(
+                                            phoneNumber: widget.phoneNumber,
+                                          );
+                                        }
                                       },
                                 child: Text(
                                   'Resend',

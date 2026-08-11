@@ -61,13 +61,14 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> verifyOtp({
+    required String endPoint,
     required String phoneNumber,
     required String code,
   }) async {
     emit(VerifyOtpLoading());
     try {
       final response = await NetworkClient.post(
-        url: ApiEndpoints.verifyOtp,
+        url: '${ApiEndpoints.verifyOtp}/$endPoint',
         data: json.encode({'phone': phoneNumber, 'code': code}),
       );
 
@@ -104,6 +105,23 @@ class AuthCubit extends Cubit<AuthState> {
       if (isClosed) return;
       logApiName('resetPasswd');
       emit(ResetPasswdError(message: handleError(e, stackTrace: s)));
+    }
+  }
+
+  Future<void> signUp({required String phoneNumber}) async {
+    emit(SignUpLoading());
+    try {
+      await NetworkClient.post(
+        url: ApiEndpoints.signUp,
+        data: json.encode({'phone': phoneNumber}),
+      );
+
+      if (isClosed) return;
+      emit(SignUpSuccess());
+    } catch (e, s) {
+      if (isClosed) return;
+      logApiName('signUp');
+      emit(SignUpError(message: handleError(e, stackTrace: s)));
     }
   }
 }

@@ -1,0 +1,1 @@
+enum OtpType { forgetPasswd, register }

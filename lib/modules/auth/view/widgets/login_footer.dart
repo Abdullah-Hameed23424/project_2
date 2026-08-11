@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
 class LoginFooter extends StatefulWidget {
@@ -19,11 +20,11 @@ class _LoginFooterState extends State<LoginFooter> {
   void initState() {
     super.initState();
 
-    _signUpRecognizer = TapGestureRecognizer()..onTap = _goToForgetPasswdScreen;
+    _signUpRecognizer = TapGestureRecognizer()..onTap = _goToSignUpScreen;
   }
 
-  void _goToForgetPasswdScreen() {
-    // AppRoutes.toSignUpScreen();
+  void _goToSignUpScreen() {
+    AppRoutes.toSignUpScreen();
   }
 
   @override

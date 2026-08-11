@@ -9,6 +9,8 @@ class Routes {
   static const String forgetPasswdScreen = '/forgetPasswdScreen';
   static const String otpScreen = '/otpScreen';
   static const String resetPasswdScreen = '/resetPasswdScreen';
+  static const String signUpScreen = '/signUpScreen';
+  static const String completeSignUpScreen = '/CompleteSignUpScreen';
 
   /// [Home]
   static const String homeScreen = '/homeScreen';

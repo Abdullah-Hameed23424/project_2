@@ -75,3 +75,16 @@ final class ResetPasswdError extends AuthState {
   @override
   List<Object?> get props => [message];
 }
+
+/// [SignUpScreen] @lib/modules/auth/view/screens/sign_up_screen.dart
+final class SignUpLoading extends AuthState {}
+
+final class SignUpSuccess extends AuthState {}
+
+final class SignUpError extends AuthState {
+  final String message;
+
+  SignUpError({required this.message});
+  @override
+  List<Object?> get props => [message];
+}

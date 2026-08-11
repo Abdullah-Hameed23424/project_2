@@ -9,6 +9,7 @@ import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/custom_button.dart';
 import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
+import 'package:project_2/modules/auth/view/screens/helper/otp_type.dart';
 import 'package:project_2/modules/auth/view/screens/otp_screen.dart';
 import 'package:project_2/modules/auth/view/widgets/otp_pinput.dart';
 
@@ -84,6 +85,10 @@ class OtpForm extends StatelessWidget {
                               if (!_otpKey.currentState!.validate()) return;
                               FocusScope.of(context).unfocus();
                               cubit.verifyOtp(
+                                endPoint:
+                                    (widget.otpType == OtpType.forgetPasswd)
+                                    ? 'password/verify'
+                                    : 'register/verify',
                                 phoneNumber: widget.phoneNumber,
                                 code: _otpController.text.trim(),
                               );
@@ -108,6 +113,10 @@ class OtpForm extends StatelessWidget {
                               if (!_otpKey.currentState!.validate()) return;
                               FocusScope.of(context).unfocus();
                               cubit.verifyOtp(
+                                endPoint:
+                                    (widget.otpType == OtpType.forgetPasswd)
+                                    ? 'password/verify'
+                                    : 'register/verify',
                                 phoneNumber: widget.phoneNumber,
                                 code: _otpController.text.trim(),
                               );

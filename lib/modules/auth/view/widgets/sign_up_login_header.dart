@@ -7,8 +7,9 @@ import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
-class LoginHeader extends StatelessWidget {
-  const LoginHeader({super.key});
+class SignUpLoginHeader extends StatelessWidget {
+  final String title;
+  const SignUpLoginHeader({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class LoginHeader extends StatelessWidget {
 
           FadeInLeft(
             delay: AppPeriods.animationDelay(2),
-            child: Text('Welcome back', style: context.titleMedium36),
+            child: Text(title, style: context.titleMedium36),
           ),
         ],
       ),

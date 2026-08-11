@@ -13,6 +13,7 @@ import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/custom_button.dart';
 import 'package:project_2/core/widgets/custom_textfield.dart';
 import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
+import 'package:project_2/modules/auth/view/screens/helper/otp_type.dart';
 import 'package:project_2/modules/auth/view/widgets/phone_number_prefix.dart';
 import 'package:project_2/modules/auth/view/widgets/section_title.dart';
 
@@ -76,6 +77,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
               } else if (state is ForgetPasswdSuccess) {
                 snackBarService.showSuccess(message: 'OTP Sent');
                 AppRoutes.toOtpScreen(
+                  otpType: OtpType.forgetPasswd,
                   phoneNumber:
                       widget.countryCode.value +
                       widget._phoneController.text.trim(),

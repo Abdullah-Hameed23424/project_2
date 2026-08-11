@@ -4,37 +4,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/constants/app_shadow.dart';
 import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/theme/app_theme.dart';
-import 'package:project_2/core/constants/app_shadow.dart';
-import 'package:project_2/core/validators/password_validator.dart';
 import 'package:project_2/core/validators/phone_validator.dart';
 import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/custom_button.dart';
 import 'package:project_2/core/widgets/custom_textfield.dart';
 import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
+import 'package:project_2/modules/auth/view/screens/helper/otp_type.dart';
 import 'package:project_2/modules/auth/view/widgets/phone_number_prefix.dart';
 import 'package:project_2/modules/auth/view/widgets/section_title.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({
+class SignUpForm extends StatelessWidget {
+  const SignUpForm({
     super.key,
-    required GlobalKey<FormState> loginKey,
+    required GlobalKey<FormState> signUpKey,
     required TextEditingController phoneController,
     required this.isoCode,
     required this.countryCode,
-    required TextEditingController passwordController,
-  }) : _loginKey = loginKey,
-       _phoneController = phoneController,
-       _passwordController = passwordController;
+  }) : _signUpKey = signUpKey,
+       _phoneController = phoneController;
 
-  final GlobalKey<FormState> _loginKey;
+  final GlobalKey<FormState> _signUpKey;
   final TextEditingController _phoneController;
   final ValueNotifier<IsoCode> isoCode;
   final ValueNotifier<String> countryCode;
-  final TextEditingController _passwordController;
 
   @override
   Widget build(BuildContext context) {
@@ -53,19 +50,21 @@ class LoginForm extends StatelessWidget {
             boxShadow: AppShadow.cardShadow,
           ),
           child: Form(
-            key: _loginKey,
+            key: _signUpKey,
             child: Column(
               children: <Widget>[
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(3),
                   child: Align(
                     alignment: AlignmentDirectional.center,
-                    child: Text('Login', style: context.titleSmall26),
+                    child: Text(
+                      'New Technician Registration',
+                      style: context.titleSmall26,
+                    ),
                   ),
                 ),
 
                 SizedBox(height: AppSizes.largeSpace),
-
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(4),
                   child: const SectionTitle(title: 'Phone Number'),
@@ -86,72 +85,50 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: AppSizes.mediumSpace),
-
+                SizedBox(height: AppSizes.tinySpace),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(6),
-                  child: const SectionTitle(title: 'Password'),
-                ),
-                FadeInLeft(
-                  delay: AppPeriods.animationDelay(7),
-                  child: CustomTextField(
-                    controller: _passwordController,
-                    hintText: '••••••••',
-                    radius: AppSizes.mediumRadius,
-                    keyboardType: TextInputType.visiblePassword,
-                    isPassword: true,
-                    validator: PasswordValidator.validate,
-                  ),
-                ),
-
-                FadeInLeft(
-                  delay: AppPeriods.animationDelay(8),
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: AppRoutes.toForgetPasswdScreen,
-                      style: TextButton.styleFrom(
-                        overlayColor: Colors.transparent,
-                        surfaceTintColor: Colors.transparent,
-                      ),
-                      child: Text(
-                        'Did you forget your password?',
-                        style: context.bodyMedium16.copyWith(
-                          color: AppColors.primary,
-                        ),
+                    child: Text(
+                      'We will send you a verification code via SMS',
+                      style: context.bodyMedium16.copyWith(
+                        color: Colors.grey.shade500,
                       ),
                     ),
                   ),
                 ),
 
-                SizedBox(height: AppSizes.mediumSpace),
-
+                SizedBox(height: AppSizes.xLargeSpace),
                 FadeInLeft(
-                  delay: AppPeriods.animationDelay(9),
+                  delay: AppPeriods.animationDelay(7),
                   child: BlocConsumer<AuthCubit, AuthState>(
                     listener: (context, state) {
-                      if (state is LoginError) {
+                      if (state is SignUpError) {
                         snackBarService.showError(message: state.message);
-                      } else if (state is LoginSuccess) {
-                        snackBarService.showSuccess(message: 'Login Success');
-                        AppRoutes.toHomeScreen();
+                      } else if (state is SignUpSuccess) {
+                        snackBarService.showSuccess(message: 'OTP Sent');
+                        AppRoutes.toOtpScreen(
+                          phoneNumber:
+                              countryCode.value + _phoneController.text.trim(),
+                          otpType: OtpType.register,
+                        );
                       }
                     },
                     builder: (context, state) {
                       final AuthCubit cubit = context.read<AuthCubit>();
-                      if (state is LoginLoading) {
+                      if (state is SignUpLoading) {
                         return const AppLoading();
                       }
                       return CustomButton(
-                        label: 'Login',
+                        label: 'Continue',
                         onPressed: () {
-                          if (!_loginKey.currentState!.validate()) return;
+                          if (!_signUpKey.currentState!.validate()) return;
 
-                          cubit.login(
+                          cubit.signUp(
                             phoneNumber:
                                 countryCode.value +
                                 _phoneController.text.trim(),
-                            password: _passwordController.text.trim(),
                           );
                         },
                       );
