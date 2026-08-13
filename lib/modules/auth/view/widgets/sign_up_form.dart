@@ -57,10 +57,7 @@ class SignUpForm extends StatelessWidget {
                   delay: AppPeriods.animationDelay(3),
                   child: Align(
                     alignment: AlignmentDirectional.center,
-                    child: Text(
-                      'New Technician Registration',
-                      style: context.titleSmall26,
-                    ),
+                    child: Text('New Account', style: context.titleSmall26),
                   ),
                 ),
 

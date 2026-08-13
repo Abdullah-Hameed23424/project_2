@@ -14,6 +14,7 @@ class AppSizes {
   static final double smallIcon = 10.h; // TODO for edit later
 
   static final double xxxLargeSpace = 150;
+  static final double xxLargeSpace = 90.h;
   static final double xLargeSpace = 45.h;
   static final double largeSpace = 35.h;
   static final double mediumSpace = 20.h;

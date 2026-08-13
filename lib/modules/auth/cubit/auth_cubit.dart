@@ -124,4 +124,33 @@ class AuthCubit extends Cubit<AuthState> {
       emit(SignUpError(message: handleError(e, stackTrace: s)));
     }
   }
+
+  Future<void> completeSignUpInfo({
+    required String phoneNumber,
+    required String fullName,
+    required String passwd,
+    required String confirmPasswd,
+    required String ticket,
+  }) async {
+    emit(CompleteSignUpLoading());
+    try {
+      await NetworkClient.post(
+        url: ApiEndpoints.completeSignUpInfo,
+        data: json.encode({
+          'phone': phoneNumber,
+          'name': fullName,
+          'password': passwd,
+          'password_confirmation': confirmPasswd,
+          'ticket': ticket,
+        }),
+      );
+
+      if (isClosed) return;
+      emit(CompleteSignUpSuccess());
+    } catch (e, s) {
+      if (isClosed) return;
+      logApiName('completeSignUp');
+      emit(CompleteSignUpError(message: handleError(e, stackTrace: s)));
+    }
+  }
 }

@@ -88,3 +88,16 @@ final class SignUpError extends AuthState {
   @override
   List<Object?> get props => [message];
 }
+
+/// [SignUpScreen] @lib/modules/auth/view/screens/sign_up_screen.dart
+final class CompleteSignUpLoading extends AuthState {}
+
+final class CompleteSignUpSuccess extends AuthState {}
+
+final class CompleteSignUpError extends AuthState {
+  final String message;
+
+  CompleteSignUpError({required this.message});
+  @override
+  List<Object?> get props => [message];
+}

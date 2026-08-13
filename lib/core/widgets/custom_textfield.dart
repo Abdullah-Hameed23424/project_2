@@ -169,8 +169,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     setState(() {});
                   },
                   icon: Icon(
-                    showPassword ? Icons.visibility : Icons.visibility_off,
-                    color: AppColors.primary,
+                    !showPassword ? Icons.visibility : Icons.visibility_off,
+                    color: !showPassword ? AppColors.primary : AppColors.black,
                   ),
                 )
               : widget.suffixIcon,
