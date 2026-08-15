@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_periods.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/validators/confirm_password_validator.dart';
 import 'package:project_2/core/validators/full_name_validator.dart';
 import 'package:project_2/core/validators/password_validator.dart';
@@ -36,14 +36,14 @@ class CompleteSignUpInfoForm extends StatelessWidget {
             child: CustomTextField(
               controller: fullNameController,
               hintText: 'ex: Mohammad Al....',
-              radius: AppSizes.mediumRadius,
+              radius: 12.r,
               keyboardType: TextInputType.name,
               validator: FullNameValidator.validate,
               prefixIcon: const Icon(Icons.person_outline),
             ),
           ),
 
-          SizedBox(height: AppSizes.mediumSpace),
+          SizedBox(height: 20.h),
 
           FadeInLeft(
             delay: AppPeriods.animationDelay(5),
@@ -54,7 +54,7 @@ class CompleteSignUpInfoForm extends StatelessWidget {
             child: CustomTextField(
               controller: passwdController,
               hintText: '........',
-              radius: AppSizes.mediumRadius,
+              radius: 12.r,
               keyboardType: TextInputType.visiblePassword,
               validator: (value) => PasswordValidator.validate(value),
               prefixIcon: const Icon(Icons.lock_outline),
@@ -62,7 +62,7 @@ class CompleteSignUpInfoForm extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: AppSizes.mediumSpace),
+          SizedBox(height: 20.h),
 
           FadeInLeft(
             delay: AppPeriods.animationDelay(7),
@@ -73,7 +73,7 @@ class CompleteSignUpInfoForm extends StatelessWidget {
             child: CustomTextField(
               controller: confirmPasswdController,
               hintText: '........',
-              radius: AppSizes.mediumRadius,
+              radius: 12.r,
               keyboardType: TextInputType.visiblePassword,
               validator: (value) => ConfirmPasswordValidator.validate(
                 value,

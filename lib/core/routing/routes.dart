@@ -13,7 +13,11 @@ class Routes {
   static const String completeSignUpScreen = '/CompleteSignUpScreen';
 
   /// [Home]
+  static const String navBarScreen = '/navBarScreen';
   static const String homeScreen = '/homeScreen';
+
+  /// [Profile]
+  static const String languageScreen = '/languageScreen';
 }
 
 /// [NOTE]

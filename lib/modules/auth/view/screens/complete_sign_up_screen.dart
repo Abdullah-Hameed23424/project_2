@@ -1,9 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/view/widgets/complete_sign_up_info_footer.dart';
@@ -71,11 +71,11 @@ class _CompleteSignUpScreenState extends State<CompleteSignUpScreen> {
           ),
         ),
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: AppSizes.paddingH),
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: AppSizes.xxxLargeSpace),
+              SizedBox(height: 150.h),
 
               FadeInLeft(
                 delay: AppPeriods.animationDelay(2),
@@ -85,7 +85,7 @@ class _CompleteSignUpScreenState extends State<CompleteSignUpScreen> {
                 ),
               ),
 
-              SizedBox(height: AppSizes.xLargeSpace),
+              SizedBox(height: 45.h),
 
               CompleteSignUpInfoForm(
                 completeInfoKey: _completeInfoKey,
@@ -94,7 +94,7 @@ class _CompleteSignUpScreenState extends State<CompleteSignUpScreen> {
                 confirmPasswdController: _confirmPasswdController,
               ),
 
-              SizedBox(height: AppSizes.xxLargeSpace),
+              SizedBox(height: 90.h),
 
               CompleteSignUpInfoFooter(
                 phoneNumber: widget.phoneNumber,

@@ -1,9 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/theme/app_theme.dart';
@@ -121,7 +121,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         },
                       ),
                     ),
-                    SizedBox(height: AppSizes.tinySpace),
+                    SizedBox(height: 5.h),
                     FadeInLeft(
                       delay: AppPeriods.animationDelay(7),
                       child: BlocBuilder<AuthCubit, AuthState>(

@@ -35,7 +35,7 @@ class CachedImage extends StatelessWidget {
         height: height,
         child:
             errorWidget ??
-            Icon(Icons.error_outline, color: AppColors.primary),
+            const Icon(Icons.error_outline, color: AppColors.white),
       );
     }
 
@@ -69,7 +69,7 @@ class CachedImage extends StatelessWidget {
           fit: fit,
           errorBuilder: (context, error, stackTrace) =>
               errorWidget ??
-              Icon(Icons.error_outline, color: AppColors.primary),
+              const Icon(Icons.error_outline, color: AppColors.primary),
         ),
       );
     } else if (imageUrl.toLowerCase().endsWith('.svg')) {
@@ -78,6 +78,7 @@ class CachedImage extends StatelessWidget {
         child: SvgPicture.network(
           imageUrl,
           fit: fit ?? BoxFit.contain,
+          colorFilter: const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
           placeholderBuilder: (BuildContext context) => AppShimmer(
             child: Container(
               decoration: BoxDecoration(
@@ -113,7 +114,7 @@ class CachedImage extends StatelessWidget {
         ),
         errorWidget: (context, url, error) =>
             errorWidget ??
-            Icon(Icons.error_outline, color: AppColors.primary),
+            const Icon(Icons.error_outline, color: AppColors.primary),
       );
     }
 

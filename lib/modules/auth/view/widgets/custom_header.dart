@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_sizes.dart' show AppSizes;
 
 class CustomHeader extends StatelessWidget {
   final IconData iconData;
@@ -12,7 +11,7 @@ class CustomHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: AppSizes.authUpperCardHeight,
+      height: 340.h,
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
@@ -21,14 +20,14 @@ class CustomHeader extends StatelessWidget {
           colors: <Color>[AppColors.primaryDark, AppColors.primary],
         ),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(AppSizes.largeRadius),
-          bottomRight: Radius.circular(AppSizes.largeRadius),
+          bottomLeft: Radius.circular(25.r),
+          bottomRight: Radius.circular(25.r),
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: AppSizes.smallSpace),
+          SizedBox(height: 10.h),
 
           FadeInLeft(
             child: Icon(iconData, size: 100.sp, color: AppColors.white),

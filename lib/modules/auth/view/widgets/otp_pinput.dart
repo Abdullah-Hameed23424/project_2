@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/constants/dimensions.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
@@ -46,7 +45,7 @@ class OtpPinput extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child: Pinput(
         enabled: enable,
-        separatorBuilder: (index) => SizedBox(width: AppSizes.mediumRadius),
+        separatorBuilder: (index) => SizedBox(width: 12.w),
         onSubmitted: onCompleted,
         controller: otpController,
         length: 4,

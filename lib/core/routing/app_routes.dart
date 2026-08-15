@@ -8,6 +8,8 @@ import 'package:project_2/modules/auth/view/screens/otp_screen.dart';
 import 'package:project_2/modules/auth/view/screens/reset_passwd_screen.dart';
 import 'package:project_2/modules/auth/view/screens/sign_up_screen.dart';
 import 'package:project_2/modules/home/view/screens/home_screen.dart';
+import 'package:project_2/modules/home/view/screens/nav_bar_screen.dart';
+import 'package:project_2/modules/profile/view/screens/language_screen.dart';
 import 'package:project_2/modules/startup/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +25,10 @@ class AppRoutes {
       Routes.forgetPasswdScreen: (_) => const ForgetPasswdScreen(),
       Routes.signUpScreen: (_) => const SignUpScreen(),
 
+      Routes.navBarScreen: (_) => const NavBarScreen(),
       Routes.homeScreen: (_) => const HomeScreen(),
+
+      Routes.languageScreen: (_) => const LanguageScreen(),
     };
   }
 
@@ -112,8 +117,16 @@ class AppRoutes {
     );
   }
 
+  static Future<dynamic>? toNavBarScreen() {
+    return NavigationService.navigateAndRemoveUntil(Routes.navBarScreen);
+  }
+
   static Future<dynamic>? toHomeScreen() {
     return NavigationService.navigateAndRemoveUntil(Routes.homeScreen);
+  }
+
+  static Future<dynamic>? toLanguageScreen() {
+    return NavigationService.navigateTo(Routes.languageScreen);
   }
 
   /// NOTE:

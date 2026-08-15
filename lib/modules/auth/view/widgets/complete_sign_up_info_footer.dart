@@ -38,7 +38,7 @@ class CompleteSignUpInfoFooter extends StatelessWidget {
               snackBarService.showError(message: state.message);
             } else if (state is CompleteSignUpSuccess) {
               snackBarService.showSuccess(message: 'Welcome to Domiq');
-              AppRoutes.toHomeScreen();
+              AppRoutes.toNavBarScreen();
             }
           },
           builder: (context, state) {

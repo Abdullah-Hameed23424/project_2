@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/dimensions.dart';
 import 'package:project_2/core/constants/app_images.dart';
 import 'package:project_2/core/localization/language_constraints.dart';
+import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/custom_button.dart';
 
 class TryAgain extends StatelessWidget {
@@ -27,7 +29,7 @@ class TryAgain extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             withImage
                 ? Image.asset(
                     AppImages.appLogo,
@@ -51,7 +53,7 @@ class TryAgain extends StatelessWidget {
                     textStyle ??
                     TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFF00376A),
+                      color: AppColors.primaryDark,
                       fontSize: Dimensions.autoSize(14),
                     ),
               ),
@@ -67,11 +69,9 @@ class TryAgain extends StatelessWidget {
                 Dimensions.autoSize(50),
               ),
               borderRadius: BorderRadius.circular(Dimensions.autoSize(12)),
-              buttonStyle: TextStyle(
-                fontFamily: 'Tajawal',
-                fontSize: Dimensions.autoSize(14),
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+              buttonStyle: context.bodyMedium16.copyWith(
+                color: AppColors.white,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],

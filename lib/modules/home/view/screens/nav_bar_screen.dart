@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/modules/home/view/screens/home_screen.dart';
+import 'package:project_2/modules/profile/view/screens/profile_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class NavBarScreen extends StatefulWidget {
@@ -16,14 +17,14 @@ class _NavBarScreenState extends State<NavBarScreen> {
     const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const ProfileScreen(),
   ];
   int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[0],
+      body: screens[currentIndex],
       bottomNavigationBar: AppBottomNavBar(
         currentIndex: currentIndex,
         onTap: (value) {
@@ -54,12 +55,8 @@ class AppBottomNavBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(24),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black.withAlpha(40),
-            blurRadius: 15,
-            offset: const Offset(0, 4),
-          ),
+        boxShadow: const <BoxShadow>[
+          BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset.zero),
         ],
       ),
       child: SalomonBottomBar(

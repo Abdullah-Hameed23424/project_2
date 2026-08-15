@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_images.dart';
 import 'package:project_2/core/constants/app_periods.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
 class SignUpLoginHeader extends StatelessWidget {
@@ -15,7 +14,7 @@ class SignUpLoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(bottom: 55.h),
-      height: AppSizes.authUpperCardHeight,
+      height: 340.h,
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
@@ -24,18 +23,18 @@ class SignUpLoginHeader extends StatelessWidget {
           colors: <Color>[AppColors.primaryDark, AppColors.primary],
         ),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(AppSizes.largeRadius),
-          bottomRight: Radius.circular(AppSizes.largeRadius),
+          bottomLeft: Radius.circular(25.r),
+          bottomRight: Radius.circular(25.r),
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: AppSizes.xLargeSpace),
+          SizedBox(height: 45.h),
 
           FadeInLeft(child: Image.asset(AppImages.appLogo, width: 150.w)),
 
-          SizedBox(height: AppSizes.tinySpace),
+          SizedBox(height: 5.h),
 
           FadeInLeft(
             delay: AppPeriods.animationDelay(2),

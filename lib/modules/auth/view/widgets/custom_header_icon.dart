@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 
 class CustomHeaderIcon extends StatelessWidget {
   final IconData iconData;
@@ -24,7 +23,7 @@ class CustomHeaderIcon extends StatelessWidget {
           shape: BoxShape.circle,
           color: AppColors.primary.withAlpha(50),
         ),
-        child: Icon(iconData, size: AppSizes.largeIcon, color: iconColor),
+        child: Icon(iconData, size: 75.h, color: iconColor),
       ),
     );
   }

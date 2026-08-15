@@ -1,10 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/theme/app_theme.dart';
@@ -41,15 +41,12 @@ class LoginForm extends StatelessWidget {
     return Transform.translate(
       offset: const Offset(0, -50),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSizes.paddingH),
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
         child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSizes.paddingH,
-            vertical: AppSizes.paddingV,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           decoration: BoxDecoration(
             color: AppColors.bgWhite,
-            borderRadius: BorderRadius.circular(AppSizes.mediumRadius),
+            borderRadius: BorderRadius.circular(12.r),
             boxShadow: AppShadow.cardShadow,
           ),
           child: Form(
@@ -64,7 +61,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: AppSizes.largeSpace),
+                SizedBox(height: 35.h),
 
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(4),
@@ -75,7 +72,7 @@ class LoginForm extends StatelessWidget {
                   child: CustomTextField(
                     controller: _phoneController,
                     hintText: '9XX XXX XXX',
-                    radius: AppSizes.mediumRadius,
+                    radius: 12.r,
                     keyboardType: TextInputType.phone,
                     validator: (value) =>
                         PhoneValidator.validate(value, country: isoCode.value),
@@ -86,7 +83,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: AppSizes.mediumSpace),
+                SizedBox(height: 20.h),
 
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(6),
@@ -97,7 +94,7 @@ class LoginForm extends StatelessWidget {
                   child: CustomTextField(
                     controller: _passwordController,
                     hintText: '••••••••',
-                    radius: AppSizes.mediumRadius,
+                    radius: 12.r,
                     keyboardType: TextInputType.visiblePassword,
                     isPassword: true,
                     validator: PasswordValidator.validate,
@@ -124,7 +121,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: AppSizes.mediumSpace),
+                SizedBox(height: 20.h),
 
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(9),
@@ -134,7 +131,7 @@ class LoginForm extends StatelessWidget {
                         snackBarService.showError(message: state.message);
                       } else if (state is LoginSuccess) {
                         snackBarService.showSuccess(message: 'Login Success');
-                        AppRoutes.toHomeScreen();
+                        AppRoutes.toNavBarScreen();
                       }
                     },
                     builder: (context, state) {

@@ -1,10 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/constants/app_shadow.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/custom_button.dart';
@@ -31,15 +31,12 @@ class OtpForm extends StatelessWidget {
     return Transform.translate(
       offset: const Offset(0, -55),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSizes.paddingH),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSizes.paddingH,
-            vertical: AppSizes.paddingV,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           decoration: BoxDecoration(
             color: AppColors.bgWhite,
-            borderRadius: BorderRadius.circular(AppSizes.mediumRadius),
+            borderRadius: BorderRadius.circular(12.r),
             boxShadow: AppShadow.cardShadow,
           ),
           child: Form(
@@ -58,7 +55,7 @@ class OtpForm extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(height: AppSizes.tinySpace),
+                SizedBox(height: 5.h),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(3),
                   child: Text(
@@ -68,7 +65,7 @@ class OtpForm extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: AppSizes.largeSpace),
+                SizedBox(height: 35.h),
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,7 +95,7 @@ class OtpForm extends StatelessWidget {
                       },
                     ),
 
-                    SizedBox(height: AppSizes.xLargeSpace),
+                    SizedBox(height: 45.h),
                     BlocBuilder<AuthCubit, AuthState>(
                       builder: (context, state) {
                         final AuthCubit cubit = context.read<AuthCubit>();

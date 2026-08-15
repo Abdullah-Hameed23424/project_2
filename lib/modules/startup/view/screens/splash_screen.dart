@@ -5,6 +5,7 @@ import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_images.dart';
 import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/routing/app_routes.dart';
+import 'package:project_2/core/storage/app_storage.dart';
 import 'package:project_2/core/theme/app_status_bar_theme.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:project_2/core/theme/app_theme.dart';
@@ -15,8 +16,13 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Future.delayed(const Duration(seconds: 3), () {
-        AppRoutes.toLoginScreen();
+      future: Future.delayed(const Duration(seconds: 3), () async {
+        final bool authorizedUser = await AppStorage.hasToken;
+        if (authorizedUser) {
+          AppRoutes.toNavBarScreen();
+        } else {
+          AppRoutes.toLoginScreen();
+        }
       }),
       builder: (context, asyncSnapshot) {
         return AnnotatedRegion<SystemUiOverlayStyle>(

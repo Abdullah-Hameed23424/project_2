@@ -1,11 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/constants/app_shadow.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/validators/phone_validator.dart';
@@ -57,13 +57,10 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSizes.paddingH,
-        vertical: AppSizes.paddingV,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(AppSizes.mediumRadius),
+        borderRadius: BorderRadius.circular(12.r),
         boxShadow: AppShadow.cardShadow,
       ),
       child: Form(
@@ -98,7 +95,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
                       child: CustomTextField(
                         controller: widget._phoneController,
                         hintText: '9XX XXX XXX',
-                        radius: AppSizes.mediumRadius,
+                        radius: 12.r,
                         keyboardType: TextInputType.phone,
                         validator: (value) => PhoneValidator.validate(
                           value,
@@ -117,7 +114,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
                   },
                 ),
 
-                SizedBox(height: AppSizes.largeSpace),
+                SizedBox(height: 35.h),
 
                 BlocBuilder<AuthCubit, AuthState>(
                   builder: (context, state) {

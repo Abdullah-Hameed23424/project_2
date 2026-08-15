@@ -18,8 +18,6 @@ import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:project_2/core/storage/app_storage.dart';
 import 'package:project_2/core/utils/device_type.dart';
 import 'package:project_2/core/localization/cubit/localization_cubit.dart';
-import 'package:project_2/modules/auth/view/screens/complete_sign_up_screen.dart';
-import 'package:project_2/modules/home/view/screens/nav_bar_screen.dart';
 
 import 'package:sentry/sentry.dart';
 
@@ -113,12 +111,12 @@ class MyApp extends StatelessWidget {
                   navigatorObservers: [NavigationService.routeObserver],
                   theme: AppTheme.lightTheme(context),
                   debugShowCheckedModeBanner: false,
-                  locale: const Locale('en'), //cubit.appLocale,
+                  locale: cubit.appLocale,
                   localizationsDelegates: localizationsDelegates,
                   supportedLocales: _buildSupportedLocales(),
-                  // routes: AppRoutes.getRoutes(),
-                  // onGenerateRoute: AppRoutes.onGenerateRoute,
-                  home: const NavBarScreen(),
+                  routes: AppRoutes.getRoutes(),
+                  onGenerateRoute: AppRoutes.onGenerateRoute,
+                  // home: const HomeScreen(),
                   initialRoute: Routes.splashScreen,
                 );
               },

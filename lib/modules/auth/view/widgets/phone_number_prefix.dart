@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
 class PhoneNumberPrefix extends StatelessWidget {
@@ -22,9 +21,7 @@ class PhoneNumberPrefix extends StatelessWidget {
       width: 90.w,
       decoration: BoxDecoration(
         color: const Color.fromARGB(80, 225, 226, 236),
-        borderRadius: BorderRadius.horizontal(
-          left: Radius.circular(AppSizes.mediumRadius),
-        ),
+        borderRadius: BorderRadius.horizontal(left: Radius.circular(12.r)),
       ),
       child: Row(
         children: <Widget>[

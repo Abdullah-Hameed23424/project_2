@@ -1,8 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/modules/auth/view/widgets/custom_header_icon.dart';
 
@@ -19,7 +19,7 @@ class ForgetPasswdHeader extends StatelessWidget {
           iconData: Icons.lock_reset,
           iconColor: AppColors.primary,
         ),
-        SizedBox(height: AppSizes.largeSpace),
+        SizedBox(height: 35.h),
         FadeInLeft(
           delay: AppPeriods.animationDelay(2),
           child: Text(
@@ -31,7 +31,7 @@ class ForgetPasswdHeader extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        SizedBox(height: AppSizes.smallSpace),
+        SizedBox(height: 10.h),
         FadeInLeft(
           delay: AppPeriods.animationDelay(3),
           child: Text(

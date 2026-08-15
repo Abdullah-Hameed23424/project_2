@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_sizes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/view/widgets/forget_passwd_header.dart';
@@ -71,16 +71,16 @@ class _ForgetPasswdScreenState extends State<ForgetPasswdScreen> {
           ),
         ),
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: AppSizes.paddingH),
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               // Top Space
-              SizedBox(height: AppSizes.xxxLargeSpace),
+              SizedBox(height: 150.h),
 
               const ForgetPasswdHeader(),
 
-              SizedBox(height: AppSizes.largeSpace),
+              SizedBox(height: 35.h),
 
               ForgetPasswordForm(
                 forgetPasswdKey: _forgetPasswdKey,
