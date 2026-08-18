@@ -13,8 +13,15 @@ class ApiEndpoints {
   /// [Home]
   static const String categories = 'categories';
 
+  /// [Orders]
+  static const String orders = 'orders';
+  static const String warranties = 'warranties';
+
   /// [Profile]
   static const String profile = 'auth/me';
+
+  /// [Addresses]
+  static const String addresses = 'addresses';
 
   static const String testEndpoint = 'test';
   static String testEndpointByAttribute({required Object id}) =>

@@ -3,15 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
+import 'package:project_2/modules/orders/models/order_data.dart';
 
 class OrderCard extends StatelessWidget {
-  const OrderCard({super.key});
+  final OrderData order;
+  const OrderCard({super.key, required this.order});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AppRoutes.toOrderDetailsScreen(orderId: 1);
+        AppRoutes.toOrderDetailsScreen(orderId: order.id);
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
@@ -49,14 +51,14 @@ class OrderCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Water',
+                        order.serviceCategoryName,
                         style: context.bodyLarge20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const Text(
-                        '12 أكتوبر 2023 - 10:00 ص',
-                        style: TextStyle(color: Color(0xff747784)),
+                      Text(
+                        order.scheduledAt,
+                        style: const TextStyle(color: Color(0xff747784)),
                       ),
                     ],
                   ),
@@ -77,7 +79,10 @@ class OrderCard extends StatelessWidget {
                         backgroundColor: AppColors.primaryDark,
                       ),
                       SizedBox(width: 5.w),
-                      const Text('In Progress'),
+                      Text(
+                        order.status.value[0].toUpperCase() +
+                            order.status.value.substring(1),
+                      ),
                     ],
                   ),
                 ),
@@ -86,15 +91,14 @@ class OrderCard extends StatelessWidget {
             SizedBox(height: 25.h),
 
             Container(
+              width: double.infinity,
               padding: const EdgeInsets.all(8),
+
               decoration: BoxDecoration(
                 color: AppColors.lightBlue.withAlpha(100),
                 borderRadius: BorderRadius.circular(12.r),
               ),
-              child: const Text(
-                'هناك تسريب مياه مستمر تحت حوض المطبخ، يرجى إرسال فني متخصص لفحصه وإصلاحه في أقرب وقت',
-                textAlign: TextAlign.center,
-              ),
+              child: Text(order.description),
             ),
 
             SizedBox(height: 20.h),
@@ -109,10 +113,14 @@ class OrderCard extends StatelessWidget {
                     color: AppColors.primaryDark,
                     fontWeight: FontWeight.w500,
                   ),
-                  const TextSpan(
+                  TextSpan(
                     children: <InlineSpan>[
-                      TextSpan(text: 'Type: '),
-                      TextSpan(text: 'Immediately'),
+                      const TextSpan(text: 'Type: '),
+                      TextSpan(
+                        text:
+                            order.type.value[0].toUpperCase() +
+                            order.type.value.substring(1),
+                      ),
                     ],
                   ),
                 ),

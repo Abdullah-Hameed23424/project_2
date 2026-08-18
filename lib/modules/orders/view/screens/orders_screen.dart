@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:project_2/core/api/api_endpoints.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/theme/app_status_bar_theme.dart';
 import 'package:project_2/core/theme/app_theme.dart';
+import 'package:project_2/core/widgets/app_loading.dart';
+import 'package:project_2/core/widgets/no_data.dart';
+import 'package:project_2/core/widgets/try_again.dart';
+import 'package:project_2/modules/orders/cubit/orders_cubit.dart';
+import 'package:project_2/modules/orders/models/order_data.dart';
 import 'package:project_2/modules/orders/view/widgets/order_card.dart';
 
 class OrdersScreen extends StatelessWidget {
@@ -11,7 +18,7 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         body: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -50,7 +57,6 @@ class OrdersScreen extends StatelessWidget {
                 ),
                 tabs: const <Widget>[
                   Tab(text: 'Orders'),
-                  Tab(text: 'Objections'),
                   Tab(text: 'Guarantees'),
                 ],
               ),
@@ -61,13 +67,82 @@ class OrdersScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
             child: TabBarView(
               children: <Widget>[
-                ListView.separated(
-                  itemBuilder: (context, index) => const OrderCard(),
-                  separatorBuilder: (context, index) => SizedBox(height: 10.h),
-                  itemCount: 10,
+                BlocProvider<OrdersCubit>(
+                  create: (context) =>
+                      OrdersCubit()..getOrders(endpoint: ApiEndpoints.orders),
+                  child: BlocBuilder<OrdersCubit, OrdersState>(
+                    builder: (context, state) {
+                      if (state is OrdersLoading) {
+                        return const AppLoading();
+                      } else if (state is OrdersError) {
+                        return TryAgain(
+                          onTap: () {
+                            context.read<OrdersCubit>().getOrders(
+                              endpoint: ApiEndpoints.orders,
+                            );
+                          },
+                          message: state.message,
+                        );
+                      } else if (state is OrdersSuccess) {
+                        if (state.orderResponse.data.isEmpty) {
+                          return const NoData();
+                        }
+
+                        return ListView.separated(
+                          itemBuilder: (context, index) {
+                            final OrderData order =
+                                state.orderResponse.data[index];
+                            return OrderCard(order: order);
+                          },
+                          separatorBuilder: (context, index) =>
+                              SizedBox(height: 10.h),
+                          itemCount: state.orderResponse.data.length,
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    },
+                  ),
                 ),
-                const Center(child: Text('Objections')),
-                const Center(child: Text('Guarantees')),
+                BlocProvider<OrdersCubit>(
+                  create: (context) => OrdersCubit()
+                    ..getOrders(
+                      endpoint: ApiEndpoints.warranties,
+                      filter: 'claimed',
+                    ),
+                  child: BlocBuilder<OrdersCubit, OrdersState>(
+                    builder: (context, state) {
+                      if (state is OrdersLoading) {
+                        return const AppLoading();
+                      } else if (state is OrdersError) {
+                        return TryAgain(
+                          onTap: () {
+                            context.read<OrdersCubit>().getOrders(
+                              endpoint: ApiEndpoints.warranties,
+                              filter: 'claimed',
+                            );
+                          },
+                          message: state.message,
+                        );
+                      } else if (state is OrdersSuccess) {
+                        if (state.orderResponse.data.isEmpty) {
+                          return const NoData();
+                        }
+
+                        return ListView.separated(
+                          itemBuilder: (context, index) {
+                            final OrderData order =
+                                state.orderResponse.data[index];
+                            return OrderCard(order: order);
+                          },
+                          separatorBuilder: (context, index) =>
+                              SizedBox(height: 10.h),
+                          itemCount: state.orderResponse.data.length,
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    },
+                  ),
+                ),
               ],
             ),
           ),

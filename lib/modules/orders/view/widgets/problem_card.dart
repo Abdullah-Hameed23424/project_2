@@ -5,7 +5,8 @@ import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/read_more_text.dart';
 
 class ProblemCard extends StatelessWidget {
-  const ProblemCard({super.key});
+  final String description;
+  const ProblemCard({super.key, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +34,7 @@ class ProblemCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.r),
           ),
           child: ReadMoreText(
-            text:
-                'The car is not running properly; there is an engine problem, and I need a comprehensive inspection and repair of the fault.',
+            text: description,
             textStyle: context.bodyMedium16,
             maxLengthFirstly: 100,
           ),

@@ -4,7 +4,15 @@ import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
 class OrderInfoCard extends StatelessWidget {
-  const OrderInfoCard({super.key});
+  final String category;
+  final String scheduleAt;
+  final String status;
+  const OrderInfoCard({
+    super.key,
+    required this.category,
+    required this.scheduleAt,
+    required this.status,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +42,10 @@ class OrderInfoCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Maintenance', style: context.bodyLarge20),
+                    Text(category, style: context.bodyLarge20),
                     SizedBox(height: 3.h),
                     Text(
-                      '12 OCT 2023، 12 AM',
+                      scheduleAt,
                       style: context.bodyMedium16.copyWith(
                         color: Colors.grey.shade600,
                       ),
@@ -59,7 +67,7 @@ class OrderInfoCard extends StatelessWidget {
                       backgroundColor: AppColors.primary,
                     ),
                     SizedBox(width: 5.w),
-                    const Text('In Progress'),
+                    Text(status),
                   ],
                 ),
               ),

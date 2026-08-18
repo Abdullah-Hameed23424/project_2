@@ -7,6 +7,7 @@ import 'dart:ui';
 
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/routing/navigation_service.dart';
+import 'package:project_2/core/widgets/app_loading.dart';
 
 class LoadingDialog extends StatefulWidget {
   const LoadingDialog({super.key});
@@ -51,9 +52,9 @@ class LoadingDialogWidget extends StatelessWidget {
           width: Dimensions.autoSize(150),
           height: Dimensions.autoSize(150),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.9),
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: [
+            boxShadow: <BoxShadow>[
               BoxShadow(
                 color: Colors.black.withOpacity(0.1),
                 blurRadius: 20,
@@ -64,23 +65,12 @@ class LoadingDialogWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: Dimensions.autoSize(40),
-                height: Dimensions.autoSize(40),
-                child: const CircularProgressIndicator(
-                  strokeWidth: 3,
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    AppColors.white,
-                  ),
-                ),
-              ),
+              const AppLoading(),
               SizedBox(height: Dimensions.autoSize(15)),
               Text(
                 'Loading...',
                 textAlign: TextAlign.center,
-                style: context.headlineSmall14.copyWith(
-                  color: Colors.black,
-                ),
+                style: context.bodyLarge20.copyWith(color: Colors.black),
               ),
             ],
           ),

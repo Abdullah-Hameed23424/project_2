@@ -85,7 +85,7 @@ Future<void> _initializeServices() async {
 }
 
 void _logDebugInfo() async {
-  AppStorage.removeToken();
+  // AppStorage.removeToken();
   log('Token: ${await AppStorage.getToken}');
   log('Has token: ${await AppStorage.hasToken}');
 }

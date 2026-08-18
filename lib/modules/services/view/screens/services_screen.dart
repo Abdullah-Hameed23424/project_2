@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/theme/app_status_bar_theme.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/app_loading.dart';
@@ -85,61 +86,66 @@ class ServicesScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final service = state.children[index];
 
-                        return Padding(
-                          padding: EdgeInsets.only(bottom: 12.h),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16.w,
-                              vertical: 16.h,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.primary.withAlpha(150),
-                              borderRadius: BorderRadius.circular(16.r),
-                            ),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  width: 48.w,
-                                  height: 48.h,
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withValues(alpha: 0.25),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: CachedImage(service.iconUrl),
-                                ),
-                                SizedBox(width: 14.w),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        service.name,
-                                        style: context.bodyMedium16.copyWith(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                        return GestureDetector(
+                          onTap: AppRoutes.toCreateOrderScreen,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 12.h),
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 16.w,
+                                vertical: 16.h,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.primary.withAlpha(150),
+                                borderRadius: BorderRadius.circular(16.r),
+                              ),
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    width: 48.w,
+                                    height: 48.h,
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withValues(
+                                        alpha: 0.25,
                                       ),
-                                      SizedBox(height: 4.h),
-                                      Text(
-                                        'With prices starting from: ${service.guidePrice}',
-                                        style: context.bodyMedium16.copyWith(
-                                          color: Colors.white.withValues(
-                                            alpha: 0.85,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: CachedImage(service.iconUrl),
+                                  ),
+                                  SizedBox(width: 14.w),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          service.name,
+                                          style: context.bodyMedium16.copyWith(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600,
                                           ),
-                                          fontWeight: FontWeight.w500,
                                         ),
-                                      ),
-                                    ],
+                                        SizedBox(height: 4.h),
+                                        Text(
+                                          'With prices starting from: ${service.guidePrice}',
+                                          style: context.bodyMedium16.copyWith(
+                                            color: Colors.white.withValues(
+                                              alpha: 0.85,
+                                            ),
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_ios_rounded,
-                                  size: 16.sp,
-                                  color: Colors.white.withValues(alpha: 0.8),
-                                ),
-                              ],
+                                  Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    size: 16.sp,
+                                    color: Colors.white.withValues(alpha: 0.8),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
