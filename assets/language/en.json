@@ -1,4 +1,77 @@
 {
   "ar": "Arabic",
-  "en": "English"
+  "en": "English",
+  "app_name": "Domiq",
+  "full_name_label": "Full Name",
+  "phone_label": "Phone Number",
+  "passwd_label": "Password",
+  "confirm_passwd_label": "Confirm Password",
+  "send": "Send",
+  "no_data": "No Data",
+  "try_again": "Try Again",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "login": {
+    "welcome": "Welcome Back",
+    "title": "Login",
+    "forget_passwd_text": "Did you forget your password?",
+    "snack_success": "Login successful",
+    "sign_up_q": "Don't have an account? ",
+    "sign_up_a": "Sign Up"
+  },
+  "forget_passwd": {
+    "title": "Forget Password",
+    "screen_q": "Forgot your password?",
+    "screen_instructions": "Enter your registered phone number so we can send you an access recovery code",
+    "snack_success": "The one-time password has been sent"
+  },
+  "otp": {
+    "snack_success": "The verification code (OTP) has been successfully verified",
+    "title": "Verification Code",
+    "screen_instructions": "Enter the 4-digit code sent to",
+    "btn_label": "Verify",
+    "resend_otp_instructions": "Resend code after ",
+    "text_btn_title": "Resend"
+  },
+  "reset_passwd": {
+    "title": "New Password",
+    "screen_instructions": "Please enter your new password",
+    "snack_success": "The password has been successfully reset",
+    "btn_label": "Reset",
+    "screen_additional_text": "Your security, always a priority"
+  },
+  "sign_up": {
+    "welcome": "Welcome to Domiq",
+    "title": "New Account",
+    "screen_hint": "We will send you a verification code via SMS",
+    "btn_label": "Continue"
+  },
+  "complete_sign_up_info": {
+    "title": "Complete Your Info",
+    "btn_label": "Register Now"
+  },
+  "nav": {
+    "home_title": "Home",
+    "my_orders_title": "Orders",
+    "wallet_title": "Wallet",
+    "profile_title": "Profile"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "current_balance": "Current Balance",
+    "balance_btn_label": "Top Up Balance",
+    "tracking_btn_label": "Tracking",
+    "categories_section_label": "Service Categories"
+  },
+  "profile": {
+    "title": "Profile",
+    "lang_label": "Language",
+    "termconditions_tile_label": "Terms & Conditions",
+    "privacy_tile_label": "Privacy Policy",
+    "logout_tile_label": "Logout",
+    "delete_account_tile_label": "Delete Account"
+  },
+  "services": {
+    "search_field_hint": "Search for a service..."
+  }
 }

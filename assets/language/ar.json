@@ -1,5 +1,77 @@
 {
   "ar": "العربية",
   "en": "الإنجليزية",
-  "splash": {}
+  "app_name": "دومِك",
+  "full_name_label": "الاسم الكامل",
+  "phone_label": "رقم الهاتف",
+  "passwd_label": "كلمة المرور",
+  "confirm_passwd_label": "تأكيد كلمة المرور",
+  "send": "إرسال",
+  "no_data": "لا يوجد بيانات",
+  "try_again": "حاول ثانية",
+  "cancel": "إلغاء",
+  "confirm": "تأكيد",
+  "login": {
+    "welcome": "مرحبًا بعودتك",
+    "title": "تسجيل الدخول",
+    "forget_passwd_text": "هل نسيت كلمة المرور؟",
+    "snack_success": "تم تسجيل الدخول بنجاح",
+    "sign_up_q": "أليس لديك حساب؟ ",
+    "sign_up_a": "إنشاء حساب"
+  },
+  "forget_passwd": {
+    "title": "نسيت كلمة المرور",
+    "screen_q": "نسيت كلمة السر؟",
+    "screen_instructions": "أدخل رقم هاتفك المسجل لنتمكن من إرسال رمز استعادة الوصول إليك",
+    "snack_success": "تم إرسال كلمة المرور لمرة واحدة"
+  },
+  "otp": {
+    "snack_success": "تم التحقق من رمز التحقق (OTP) بنجاح",
+    "title": "رمز التحقق",
+    "screen_instructions": "أدخل الرمز المكون من 4 أرقام المرسل إلى",
+    "btn_label": "تحقق",
+    "resend_otp_instructions": "إعادة إرسال الرمز بعد ",
+    "text_btn_title": "أرسل من جديد"
+  },
+  "reset_passwd": {
+    "title": "كلمة المرور الجديدة",
+    "screen_instructions": "يرجى إدخال كلمة المرور الجديدة الخاصة بك",
+    "snack_success": "تمت إعادة تعيين كلمة المرور بنجاح",
+    "btn_label": "إعادة ضبط",
+    "screen_additional_text": "أمنك... أولوية دائمة"
+  },
+  "sign_up": {
+    "welcome": "أهلًا بك في دومِك",
+    "title": "حساب جديد",
+    "screen_hint": "سنرسل لك رمز التحقق عبر رسالة نصية قصيرة",
+    "btn_label": "متابعة"
+  },
+  "complete_sign_up_info": {
+    "title": "أكمل بياناتك",
+    "btn_label": "سجّل الآن"
+  },
+  "nav": {
+    "home_title": "الرئيسية",
+    "my_orders_title": "الطلبات",
+    "wallet_title": "المحفظة",
+    "profile_title": "بياناتي"
+  },
+  "home": {
+    "welcome": "مرحباً",
+    "current_balance": "الرصيد الحالي",
+    "balance_btn_label": "شحن الرصيد",
+    "tracking_btn_label": "تتبع",
+    "categories_section_label": "فئات الخدمات"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "lang_label": "اللغة",
+    "termconditions_tile_label": "الشروط والأحكام",
+    "privacy_tile_label": "سياسة الخصوصية",
+    "logout_tile_label": "تسجيل الخروج",
+    "delete_account_tile_label": "حذف الحساب"
+  },
+  "services": {
+    "search_field_hint": "ابحث عن خدمة..."
+  }
 }
