@@ -1,5 +1,6 @@
 import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:project_2/core/routing/routes.dart';
+import 'package:project_2/modules/addresses/view/screens/addresses_screen.dart';
 import 'package:project_2/modules/auth/view/screens/complete_sign_up_screen.dart';
 import 'package:project_2/modules/auth/view/screens/forget_passwd_screen.dart';
 import 'package:project_2/modules/auth/view/screens/helper/otp_type.dart';
@@ -9,7 +10,10 @@ import 'package:project_2/modules/auth/view/screens/reset_passwd_screen.dart';
 import 'package:project_2/modules/auth/view/screens/sign_up_screen.dart';
 import 'package:project_2/modules/home/view/screens/home_screen.dart';
 import 'package:project_2/modules/home/view/screens/nav_bar_screen.dart';
+import 'package:project_2/modules/orders/view/screens/create_order_screen.dart';
+import 'package:project_2/modules/orders/view/screens/order_details_screen.dart';
 import 'package:project_2/modules/profile/view/screens/language_screen.dart';
+import 'package:project_2/modules/services/view/screens/services_screen.dart';
 import 'package:project_2/modules/startup/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +33,9 @@ class AppRoutes {
       Routes.homeScreen: (_) => const HomeScreen(),
 
       Routes.languageScreen: (_) => const LanguageScreen(),
+
+      Routes.addressesScreen: (_) => const AddressesScreen(),
+      Routes.createOrderScreen: (_) => const CreateOrderScreen(),
     };
   }
 
@@ -62,6 +69,18 @@ class AppRoutes {
             phoneNumber: args['phoneNumber'],
             ticket: args['ticket'],
           ),
+        );
+      case Routes.servicesScreen:
+        final int id = settings.arguments as int;
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => ServicesScreen(categoryId: id),
+        );
+      case Routes.orderDetailsScreen:
+        final int id = settings.arguments as int;
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => OrderDetailsScreen(orderId: id),
         );
 
       default:
@@ -127,6 +146,28 @@ class AppRoutes {
 
   static Future<dynamic>? toLanguageScreen() {
     return NavigationService.navigateTo(Routes.languageScreen);
+  }
+
+  static Future<dynamic>? toAddressesScreen() {
+    return NavigationService.navigateTo(Routes.addressesScreen);
+  }
+
+  static Future<dynamic>? toCreateOrderScreen() {
+    return NavigationService.navigateTo(Routes.createOrderScreen);
+  }
+
+  static Future<dynamic>? toServicesScreen({required int categoryId}) {
+    return NavigationService.navigateTo(
+      Routes.servicesScreen,
+      arguments: categoryId,
+    );
+  }
+
+  static Future<dynamic>? toOrderDetailsScreen({required int orderId}) {
+    return NavigationService.navigateTo(
+      Routes.orderDetailsScreen,
+      arguments: orderId,
+    );
   }
 
   /// NOTE:

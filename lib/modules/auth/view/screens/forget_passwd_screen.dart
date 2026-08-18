@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/view/widgets/forget_passwd_header.dart';
@@ -47,7 +48,7 @@ class _ForgetPasswdScreenState extends State<ForgetPasswdScreen> {
         animateColor: true,
         leading: const PopButton(color: AppColors.primaryDark),
         title: Text(
-          'Forget Password',
+          translate('forget_passwd.title', context),
           style: context.titleSmall26.copyWith(
             fontWeight: FontWeight.w400,
             color: AppColors.primaryDark,

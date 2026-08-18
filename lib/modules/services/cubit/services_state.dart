@@ -25,3 +25,22 @@ final class CategoriesError extends ServicesState {
   @override
   List<Object?> get props => [message];
 }
+
+final class ServicesLoading extends ServicesState {}
+
+final class ServicesSuccess extends ServicesState {
+  final String catName;
+  final List<CategoryData> children;
+  ServicesSuccess({required this.children, required this.catName});
+
+  @override
+  List<Object?> get props => [children, catName];
+}
+
+final class ServicesError extends ServicesState {
+  final String message;
+  ServicesError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}

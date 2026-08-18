@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
 import 'package:project_2/modules/auth/view/widgets/sign_up_form.dart';
@@ -51,12 +52,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             statusBarIconBrightness: Brightness.light,
           ),
           leading: const PopButton(),
-          // title: const Text('New Technician Registration'),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const SignUpLoginHeader(title: 'Welcome to Domiq'),
+              SignUpLoginHeader(title: translate('sign_up.welcome', context)),
 
               SignUpForm(
                 signUpKey: _signUpKey,

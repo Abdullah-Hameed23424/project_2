@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
 import 'package:project_2/modules/auth/view/widgets/login_footer.dart';
 import 'package:project_2/modules/auth/view/widgets/login_form.dart';
@@ -57,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: <Widget>[
               // Blue Part
-              const SignUpLoginHeader(title: 'Welcome back'),
+              SignUpLoginHeader(title: translate('login.welcome', context)),
 
               // Floating Card
               LoginForm(

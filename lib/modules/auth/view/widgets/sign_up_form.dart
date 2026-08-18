@@ -6,6 +6,7 @@ import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/constants/app_shadow.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/theme/app_theme.dart';
@@ -54,27 +55,35 @@ class SignUpForm extends StatelessWidget {
                   delay: AppPeriods.animationDelay(3),
                   child: Align(
                     alignment: AlignmentDirectional.center,
-                    child: Text('New Account', style: context.titleSmall26),
+                    child: Text(
+                      translate('sign_up.title', context),
+                      style: context.titleSmall26,
+                    ),
                   ),
                 ),
 
                 SizedBox(height: 35.h),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(4),
-                  child: const SectionTitle(title: 'Phone Number'),
+                  child: SectionTitle(title: translate('phone_label', context)),
                 ),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(5),
-                  child: CustomTextField(
-                    controller: _phoneController,
-                    hintText: '9XX XXX XXX',
-                    radius: 12.r,
-                    keyboardType: TextInputType.phone,
-                    validator: (value) =>
-                        PhoneValidator.validate(value, country: isoCode.value),
-                    prefixIcon: PhoneNumberPrefix(
-                      countryCode: countryCode,
-                      isoCode: isoCode,
+                  child: Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: CustomTextField(
+                      controller: _phoneController,
+                      hintText: '9XX XXX XXX',
+                      radius: 12.r,
+                      keyboardType: TextInputType.phone,
+                      validator: (value) => PhoneValidator.validate(
+                        value,
+                        country: isoCode.value,
+                      ),
+                      prefixIcon: PhoneNumberPrefix(
+                        countryCode: countryCode,
+                        isoCode: isoCode,
+                      ),
                     ),
                   ),
                 ),
@@ -85,7 +94,7 @@ class SignUpForm extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      'We will send you a verification code via SMS',
+                      translate('sign_up.screen_hint', context),
                       style: context.bodyMedium16.copyWith(
                         color: Colors.grey.shade500,
                       ),
@@ -101,7 +110,12 @@ class SignUpForm extends StatelessWidget {
                       if (state is SignUpError) {
                         snackBarService.showError(message: state.message);
                       } else if (state is SignUpSuccess) {
-                        snackBarService.showSuccess(message: 'OTP Sent');
+                        snackBarService.showSuccess(
+                          message: translate(
+                            'forget_passwd.snack_success',
+                            context,
+                          ),
+                        );
                         AppRoutes.toOtpScreen(
                           phoneNumber:
                               countryCode.value + _phoneController.text.trim(),
@@ -115,7 +129,7 @@ class SignUpForm extends StatelessWidget {
                         return const AppLoading();
                       }
                       return CustomButton(
-                        label: 'Continue',
+                        label: translate('sign_up.btn_label', context),
                         onPressed: () {
                           if (!_signUpKey.currentState!.validate()) return;
 

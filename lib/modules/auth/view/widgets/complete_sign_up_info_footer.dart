@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/widgets/app_loading.dart';
@@ -47,7 +48,7 @@ class CompleteSignUpInfoFooter extends StatelessWidget {
               return const AppLoading();
             }
             return CustomButton(
-              label: 'Register Now',
+              label: translate('complete_sign_up_info.btn_label', context),
               icon: const Icon(Icons.verified_outlined, color: AppColors.white),
               onPressed: () {
                 if (!completeInfoKey.currentState!.validate()) return;

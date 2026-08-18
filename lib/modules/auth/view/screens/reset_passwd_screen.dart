@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/view/widgets/custom_header.dart';
@@ -61,7 +62,7 @@ class _ResetPasswdScreenState extends State<ResetPasswdScreen> {
             FadeIn(
               delay: AppPeriods.animationDelay(10),
               child: Text(
-                'Your security, always a priority',
+                translate('reset_passwd.screen_additional_text', context),
                 style: context.bodyLarge20.copyWith(
                   color: Colors.grey.shade500,
                   fontWeight: FontWeight.w500,

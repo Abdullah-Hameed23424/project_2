@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/cached_image.dart';
+import 'package:project_2/core/widgets/no_data.dart';
 import 'package:project_2/core/widgets/try_again.dart';
 import 'package:project_2/modules/home/view/widgets/categories_shimmer.dart';
 import 'package:project_2/modules/services/cubit/services_cubit.dart';
@@ -43,6 +45,9 @@ class _ServiceCategoriesState extends State<ServiceCategories> {
               ),
             );
           } else if (state is CategoriesSuccess) {
+            if (state.categoriesResponse.data.isEmpty) {
+              return const SliverToBoxAdapter(child: NoData());
+            }
             return SliverGrid.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -55,7 +60,9 @@ class _ServiceCategoriesState extends State<ServiceCategories> {
                 final CategoryData category =
                     state.categoriesResponse.data[index];
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    AppRoutes.toServicesScreen(categoryId: category.id);
+                  },
                   child: Container(
                     padding: EdgeInsets.all(16.w),
                     decoration: BoxDecoration(

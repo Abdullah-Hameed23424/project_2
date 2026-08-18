@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/view/widgets/complete_sign_up_info_footer.dart';
@@ -49,10 +50,10 @@ class _CompleteSignUpScreenState extends State<CompleteSignUpScreen> {
           statusBarColor: Colors.transparent,
           statusBarIconBrightness: Brightness.dark,
         ),
-        leading: FadeInLeft(child: const PopButton(color: AppColors.black)),
+        leading: const FadeInLeft(child: PopButton(color: AppColors.black)),
         title: FadeInLeft(
           child: Text(
-            'Complete Your Info',
+            translate('complete_sign_up_info.title', context),
             style: context.titleSmall26.copyWith(fontWeight: FontWeight.normal),
           ),
         ),

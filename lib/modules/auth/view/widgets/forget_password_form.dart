@@ -6,6 +6,7 @@ import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/constants/app_shadow.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/validators/phone_validator.dart';
@@ -72,7 +73,9 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
               if (state is ForgetPasswdError) {
                 snackBarService.showError(message: state.message);
               } else if (state is ForgetPasswdSuccess) {
-                snackBarService.showSuccess(message: 'OTP Sent');
+                snackBarService.showSuccess(
+                  message: translate('forget_passwd.snack_success', context),
+                );
                 AppRoutes.toOtpScreen(
                   otpType: OtpType.forgetPasswd,
                   phoneNumber:
@@ -86,28 +89,31 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
               children: <Widget>[
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(4),
-                  child: const SectionTitle(title: 'Phone Number'),
+                  child: SectionTitle(title: translate('phone_label', context)),
                 ),
                 Builder(
                   builder: (context) {
                     return FadeInLeft(
                       delay: AppPeriods.animationDelay(5),
-                      child: CustomTextField(
-                        controller: widget._phoneController,
-                        hintText: '9XX XXX XXX',
-                        radius: 12.r,
-                        keyboardType: TextInputType.phone,
-                        validator: (value) => PhoneValidator.validate(
-                          value,
-                          country: widget.isoCode.value,
-                        ),
-                        prefixIcon: PhoneNumberPrefix(
-                          countryCode: widget.countryCode,
-                          isoCode: widget.isoCode,
-                        ),
-                        onEditingComplete: () => handleForgetPasswd(
-                          context,
-                          cubit: context.read<AuthCubit>(),
+                      child: Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: CustomTextField(
+                          controller: widget._phoneController,
+                          hintText: '9XX XXX XXX',
+                          radius: 12.r,
+                          keyboardType: TextInputType.phone,
+                          validator: (value) => PhoneValidator.validate(
+                            value,
+                            country: widget.isoCode.value,
+                          ),
+                          prefixIcon: PhoneNumberPrefix(
+                            countryCode: widget.countryCode,
+                            isoCode: widget.isoCode,
+                          ),
+                          onEditingComplete: () => handleForgetPasswd(
+                            context,
+                            cubit: context.read<AuthCubit>(),
+                          ),
                         ),
                       ),
                     );
@@ -123,7 +129,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
                     return FadeInLeft(
                       delay: AppPeriods.animationDelay(6),
                       child: CustomButton(
-                        label: 'Send OTP',
+                        label: translate('send', context),
                         onPressed: () =>
                             handleForgetPasswd(context, cubit: cubit),
                       ),

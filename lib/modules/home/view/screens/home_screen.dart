@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/theme/app_status_bar_theme.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/cached_image.dart';
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           title: Text(
-            'Welcome',
+            translate('home.welcome', context),
             style: context.titleSmall26.copyWith(fontWeight: FontWeight.normal),
           ),
           centerTitle: false,
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              const Text('Current Balance'),
+                              Text(translate('home.current_balance', context)),
                               Text.rich(
                                 TextSpan(
                                   children: <InlineSpan>[
@@ -106,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Expanded(
                           child: CustomButton(
-                            label: 'Top up balance',
+                            label: translate('home.balance_btn_label', context),
                             onPressed: () {},
                           ),
                         ),

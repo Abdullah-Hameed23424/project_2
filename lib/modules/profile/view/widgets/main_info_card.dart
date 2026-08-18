@@ -103,6 +103,7 @@ class _MainInfoCardState extends State<MainInfoCard> {
 
                   Text(
                     '+963 987 654 321',
+                    textDirection: TextDirection.ltr,
                     style: context.bodyMedium16.copyWith(
                       color: Colors.grey.shade500,
                     ),

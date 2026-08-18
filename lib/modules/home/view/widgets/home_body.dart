@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/modules/home/view/widgets/service_categories.dart';
 
@@ -16,7 +17,10 @@ class HomeBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Align(
               alignment: AlignmentDirectional.centerStart,
-              child: Text('Service Categories', style: context.bodyMedium16),
+              child: Text(
+                translate('home.categories_section_label', context),
+                style: context.bodyMedium16,
+              ),
             ),
           ),
 

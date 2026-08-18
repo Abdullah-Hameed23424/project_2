@@ -153,4 +153,20 @@ class AuthCubit extends Cubit<AuthState> {
       emit(CompleteSignUpError(message: handleError(e, stackTrace: s)));
     }
   }
+
+  Future<void> logout() async {
+    emit(LogoutLoading());
+    try {
+      await NetworkClient.post(url: ApiEndpoints.logout);
+      AppStorage.removeToken();
+      AppStorage.removeMyId();
+
+      if (isClosed) return;
+      emit(LogoutSuccess());
+    } catch (e, s) {
+      if (isClosed) return;
+      logApiName('logout');
+      emit(LogoutError(message: handleError(e, stackTrace: s)));
+    }
+  }
 }

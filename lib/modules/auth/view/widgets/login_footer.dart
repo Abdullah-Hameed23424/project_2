@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 
@@ -41,9 +42,9 @@ class _LoginFooterState extends State<LoginFooter> {
         style: context.bodyMedium16,
         TextSpan(
           children: <InlineSpan>[
-            const TextSpan(text: 'Don\'t have an account? '),
+            TextSpan(text: translate('login.sign_up_q', context)),
             TextSpan(
-              text: 'Sign Up',
+              text: translate('login.sign_up_a', context),
               style: context.bodyMedium16.copyWith(
                 color: AppColors.primary,
                 fontWeight: FontWeight.w600,

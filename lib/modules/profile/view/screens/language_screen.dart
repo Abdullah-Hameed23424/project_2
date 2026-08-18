@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/theme/app_status_bar_theme.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/localization/cubit/localization_cubit.dart';
@@ -19,7 +20,7 @@ class LanguageScreen extends StatelessWidget {
         systemOverlayStyle: AppStatusBarTheme.lightnessStatusBar,
         leading: const PopButton(color: AppColors.black),
         title: Text(
-          'Language',
+          translate('profile.lang_label', context),
           style: context.titleSmall26.copyWith(
             color: AppColors.black,
             fontWeight: FontWeight.normal,

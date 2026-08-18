@@ -1,18 +1,14 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project_2/core/constants/app_colors.dart';
-import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
-import 'package:project_2/core/theme/app_theme.dart';
-import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/pop_button.dart';
 import 'package:project_2/modules/auth/cubit/auth_cubit.dart';
 import 'package:project_2/modules/auth/view/screens/helper/otp_type.dart';
 import 'package:project_2/modules/auth/view/widgets/custom_timer.dart';
 import 'package:project_2/modules/auth/view/widgets/custom_header.dart';
+import 'package:project_2/modules/auth/view/widgets/otp_footer.dart';
 import 'package:project_2/modules/auth/view/widgets/otp_form.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -58,7 +54,9 @@ class _OtpScreenState extends State<OtpScreen> {
           if (state is VerifyOtpError) {
             snackBarService.showError(message: state.message);
           } else if (state is VerifyOtpSuccess) {
-            snackBarService.showSuccess(message: 'Verifying OTP successfully');
+            snackBarService.showSuccess(
+              message: translate('otp.snack_success', context),
+            );
             if (widget.otpType == OtpType.forgetPasswd) {
               AppRoutes.toResetPasswdScreen(
                 phoneNumber: widget.phoneNumber,
@@ -74,13 +72,17 @@ class _OtpScreenState extends State<OtpScreen> {
           if (state is ForgetPasswdError) {
             snackBarService.showError(message: state.message);
           } else if (state is ForgetPasswdSuccess) {
-            snackBarService.showSuccess(message: 'OTP Sent');
+            snackBarService.showSuccess(
+              message: translate('forget_passwd.snack_success', context),
+            );
             _timer.start(59);
           }
           if (state is SignUpError) {
             snackBarService.showError(message: state.message);
           } else if (state is SignUpSuccess) {
-            snackBarService.showSuccess(message: 'OTP Sent');
+            snackBarService.showSuccess(
+              message: translate('forget_passwd.snack_success', context),
+            );
           }
         },
         child: Scaffold(
@@ -99,73 +101,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
 
                 // Footer
-                Column(
-                  children: <Widget>[
-                    FadeInLeft(
-                      delay: AppPeriods.animationDelay(6),
-                      child: ValueListenableBuilder<int>(
-                        valueListenable: _timer.remainingSeconds,
-                        builder: (context, seconds, child) {
-                          return Text.rich(
-                            style: context.headlineMedium18,
-                            TextSpan(
-                              children: <InlineSpan>[
-                                const TextSpan(text: 'Resend code after '),
-                                TextSpan(
-                                  text:
-                                      '00:${seconds.toString().padLeft(2, '0')}',
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    SizedBox(height: 5.h),
-                    FadeInLeft(
-                      delay: AppPeriods.animationDelay(7),
-                      child: BlocBuilder<AuthCubit, AuthState>(
-                        builder: (context, state) {
-                          final AuthCubit cubit = context.read<AuthCubit>();
-                          return ValueListenableBuilder(
-                            valueListenable: _timer.remainingSeconds,
-                            builder: (context, seconds, child) {
-                              if (state is ForgetPasswdLoading) {
-                                return const AppLoading();
-                              }
-                              return TextButton(
-                                onPressed: (seconds != 0)
-                                    ? null
-                                    : () {
-                                        if (widget.otpType ==
-                                            OtpType.forgetPasswd) {
-                                          cubit.forgetPasswd(
-                                            phoneNumber: widget.phoneNumber,
-                                          );
-                                        } else if (widget.otpType ==
-                                            OtpType.register) {
-                                          cubit.signUp(
-                                            phoneNumber: widget.phoneNumber,
-                                          );
-                                        }
-                                      },
-                                child: Text(
-                                  'Resend',
-                                  style: context.bodyLarge20.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    color: (seconds != 0)
-                                        ? Colors.grey.shade400
-                                        : AppColors.primary,
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                OtpFooter(timer: _timer, widget: widget),
               ],
             ),
           ),

@@ -101,3 +101,15 @@ final class CompleteSignUpError extends AuthState {
   @override
   List<Object?> get props => [message];
 }
+
+final class LogoutLoading extends AuthState {}
+
+final class LogoutSuccess extends AuthState {}
+
+final class LogoutError extends AuthState {
+  final String message;
+
+  LogoutError({required this.message});
+  @override
+  List<Object?> get props => [message];
+}

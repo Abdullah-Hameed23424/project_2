@@ -11,6 +11,7 @@ class AppTheme {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        surfaceTintColor: AppColors.lightBlue,
         titleTextStyle: CustomTextStyle.titleSmall.copyWith(
           fontWeight: FontWeight.w400,
           color: AppColors.white,

@@ -37,7 +37,7 @@ class _NoDataState extends State<NoData> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [
+        children: <Widget>[
           SizedBox(height: Dimensions.autoSize(120)),
           AnimatedBuilder(
             animation: _animation,

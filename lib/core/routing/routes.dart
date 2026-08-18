@@ -16,6 +16,16 @@ class Routes {
   static const String navBarScreen = '/navBarScreen';
   static const String homeScreen = '/homeScreen';
 
+  /// [Services]
+  static const String servicesScreen = '/servicesScreen';
+
+  /// [Orders]
+  static const String orderDetailsScreen = '/orderDetailsScreen';
+  static const String createOrderScreen = '/createOrderScreen';
+
+  /// [Addresses]
+  static const String addressesScreen = '/addressesScreen';
+
   /// [Profile]
   static const String languageScreen = '/languageScreen';
 }

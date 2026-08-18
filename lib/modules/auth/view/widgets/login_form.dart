@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/theme/app_theme.dart';
@@ -57,7 +58,10 @@ class LoginForm extends StatelessWidget {
                   delay: AppPeriods.animationDelay(3),
                   child: Align(
                     alignment: AlignmentDirectional.center,
-                    child: Text('Login', style: context.titleSmall26),
+                    child: Text(
+                      translate('login.title', context),
+                      style: context.titleSmall26,
+                    ),
                   ),
                 ),
 
@@ -65,20 +69,25 @@ class LoginForm extends StatelessWidget {
 
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(4),
-                  child: const SectionTitle(title: 'Phone Number'),
+                  child: SectionTitle(title: translate('phone_label', context)),
                 ),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(5),
-                  child: CustomTextField(
-                    controller: _phoneController,
-                    hintText: '9XX XXX XXX',
-                    radius: 12.r,
-                    keyboardType: TextInputType.phone,
-                    validator: (value) =>
-                        PhoneValidator.validate(value, country: isoCode.value),
-                    prefixIcon: PhoneNumberPrefix(
-                      countryCode: countryCode,
-                      isoCode: isoCode,
+                  child: Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: CustomTextField(
+                      controller: _phoneController,
+                      hintText: '9XX XXX XXX',
+                      radius: 12.r,
+                      keyboardType: TextInputType.phone,
+                      validator: (value) => PhoneValidator.validate(
+                        value,
+                        country: isoCode.value,
+                      ),
+                      prefixIcon: PhoneNumberPrefix(
+                        countryCode: countryCode,
+                        isoCode: isoCode,
+                      ),
                     ),
                   ),
                 ),
@@ -87,7 +96,9 @@ class LoginForm extends StatelessWidget {
 
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(6),
-                  child: const SectionTitle(title: 'Password'),
+                  child: SectionTitle(
+                    title: translate('passwd_label', context),
+                  ),
                 ),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(7),
@@ -112,7 +123,7 @@ class LoginForm extends StatelessWidget {
                         surfaceTintColor: Colors.transparent,
                       ),
                       child: Text(
-                        'Did you forget your password?',
+                        translate('login.forget_passwd_text', context),
                         style: context.bodyMedium16.copyWith(
                           color: AppColors.primary,
                         ),
@@ -130,7 +141,9 @@ class LoginForm extends StatelessWidget {
                       if (state is LoginError) {
                         snackBarService.showError(message: state.message);
                       } else if (state is LoginSuccess) {
-                        snackBarService.showSuccess(message: 'Login Success');
+                        snackBarService.showSuccess(
+                          message: translate('login.snack_success', context),
+                        );
                         AppRoutes.toNavBarScreen();
                       }
                     },
@@ -140,7 +153,7 @@ class LoginForm extends StatelessWidget {
                         return const AppLoading();
                       }
                       return CustomButton(
-                        label: 'Login',
+                        label: translate('login.title', context),
                         onPressed: () {
                           if (!_loginKey.currentState!.validate()) return;
 

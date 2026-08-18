@@ -9,7 +9,9 @@ class ProfileOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<ProfileOptionModel> items = ProfileHelper.profileOptionItems;
+    final List<ProfileOptionModel> items = ProfileHelper.getProfileOption(
+      context,
+    );
     return Container(
       decoration: BoxDecoration(
         color: AppColors.white,

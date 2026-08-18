@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/constants/app_shadow.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/theme/app_theme.dart';
 import 'package:project_2/core/widgets/app_loading.dart';
 import 'package:project_2/core/widgets/custom_button.dart';
@@ -47,7 +48,7 @@ class OtpForm extends StatelessWidget {
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(2),
                   child: Text(
-                    'Verification Code',
+                    translate('otp.title', context),
                     style: context.headlineLarge30.copyWith(
                       fontWeight: FontWeight.w700,
                       color: AppColors.black,
@@ -58,10 +59,25 @@ class OtpForm extends StatelessWidget {
                 SizedBox(height: 5.h),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(3),
-                  child: Text(
-                    'Enter the 4-digit code sent\nto ${widget.phoneNumber}',
+                  child: Text.rich(
                     style: context.bodyLarge20,
                     textAlign: TextAlign.center,
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(
+                          text: translate('otp.screen_instructions', context),
+                        ),
+                        WidgetSpan(
+                          child: Directionality(
+                            textDirection: TextDirection.ltr,
+                            child: Text(
+                              ' ${widget.phoneNumber}',
+                              style: context.bodyLarge20,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
 
@@ -105,7 +121,7 @@ class OtpForm extends StatelessWidget {
                         return FadeInLeft(
                           delay: AppPeriods.animationDelay(5),
                           child: CustomButton(
-                            label: 'Verify',
+                            label: translate('otp.btn_label', context),
                             onPressed: () {
                               if (!_otpKey.currentState!.validate()) return;
                               FocusScope.of(context).unfocus();

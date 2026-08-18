@@ -18,6 +18,9 @@ import 'package:project_2/core/routing/navigation_service.dart';
 import 'package:project_2/core/storage/app_storage.dart';
 import 'package:project_2/core/utils/device_type.dart';
 import 'package:project_2/core/localization/cubit/localization_cubit.dart';
+import 'package:project_2/modules/addresses/view/screens/addresses_screen.dart';
+import 'package:project_2/modules/orders/view/screens/close_order_screen.dart';
+import 'package:project_2/modules/services/view/screens/service_evaluation.dart';
 
 import 'package:sentry/sentry.dart';
 
@@ -67,7 +70,6 @@ Future<void> _initializeServices() async {
   await CacheHelper.init();
   await NetworkClient.init();
 
-  // AppStorage.removeLocale();
   _logDebugInfo();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
@@ -83,6 +85,7 @@ Future<void> _initializeServices() async {
 }
 
 void _logDebugInfo() async {
+  AppStorage.removeToken();
   log('Token: ${await AppStorage.getToken}');
   log('Has token: ${await AppStorage.hasToken}');
 }
@@ -116,8 +119,8 @@ class MyApp extends StatelessWidget {
                   supportedLocales: _buildSupportedLocales(),
                   routes: AppRoutes.getRoutes(),
                   onGenerateRoute: AppRoutes.onGenerateRoute,
-                  // home: const HomeScreen(),
                   initialRoute: Routes.splashScreen,
+                  // home: const AddressesScreen(),
                 );
               },
             ),

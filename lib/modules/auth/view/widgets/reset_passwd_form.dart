@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_2/core/constants/app_colors.dart';
 import 'package:project_2/core/constants/app_periods.dart';
 import 'package:project_2/core/constants/app_shadow.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/core/routing/app_routes.dart';
 import 'package:project_2/core/services/snackbar_service.dart';
 import 'package:project_2/core/theme/app_theme.dart';
@@ -55,7 +56,7 @@ class ResetPasswdForm extends StatelessWidget {
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(2),
                   child: Text(
-                    'New Password',
+                    translate('reset_passwd.title', context),
                     style: context.headlineLarge30.copyWith(
                       fontWeight: FontWeight.w700,
                       color: AppColors.black,
@@ -67,7 +68,7 @@ class ResetPasswdForm extends StatelessWidget {
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(3),
                   child: Text(
-                    'Please enter your new password',
+                    translate('reset_passwd.screen_instructions', context),
                     style: context.bodyLarge20,
                     textAlign: TextAlign.center,
                   ),
@@ -76,7 +77,9 @@ class ResetPasswdForm extends StatelessWidget {
                 SizedBox(height: 35.h),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(4),
-                  child: const SectionTitle(title: 'Password'),
+                  child: SectionTitle(
+                    title: translate('passwd_label', context),
+                  ),
                 ),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(5),
@@ -94,7 +97,9 @@ class ResetPasswdForm extends StatelessWidget {
 
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(5),
-                  child: const SectionTitle(title: 'Confirm Password'),
+                  child: SectionTitle(
+                    title: translate('confirm_passwd_label', context),
+                  ),
                 ),
                 FadeInLeft(
                   delay: AppPeriods.animationDelay(6),
@@ -121,7 +126,10 @@ class ResetPasswdForm extends StatelessWidget {
                         snackBarService.showError(message: state.message);
                       } else if (state is ResetPasswdSuccess) {
                         snackBarService.showSuccess(
-                          message: 'Reset password has been done successfully',
+                          message: translate(
+                            'reset_passwd.snack_success',
+                            context,
+                          ),
                         );
                         AppRoutes.toLoginScreen();
                       }
@@ -134,7 +142,7 @@ class ResetPasswdForm extends StatelessWidget {
                       return FadeInLeft(
                         delay: AppPeriods.animationDelay(7),
                         child: CustomButton(
-                          label: 'Reset',
+                          label: translate('reset_passwd.btn_label', context),
                           onPressed: () {
                             if (!_resetKey.currentState!.validate()) return;
                             FocusScope.of(context).unfocus();

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_2/core/constants/app_colors.dart';
+import 'package:project_2/core/localization/language_constraints.dart';
 import 'package:project_2/modules/home/view/screens/home_screen.dart';
+import 'package:project_2/modules/orders/view/screens/close_order_screen.dart';
+import 'package:project_2/modules/orders/view/screens/orders_screen.dart';
 import 'package:project_2/modules/profile/view/screens/profile_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -15,8 +18,8 @@ class NavBarScreen extends StatefulWidget {
 class _NavBarScreenState extends State<NavBarScreen> {
   final List<Widget> screens = [
     const HomeScreen(),
-    const HomeScreen(),
-    const HomeScreen(),
+    const OrdersScreen(),
+    const CloseOrderScreen(),
     const ProfileScreen(),
   ];
   int currentIndex = 0;
@@ -68,28 +71,28 @@ class AppBottomNavBar extends StatelessWidget {
         items: <SalomonBottomBarItem>[
           SalomonBottomBarItem(
             icon: const Icon(Icons.home_outlined),
-            title: const Text('Home'),
+            title: Text(translate('nav.home_title', context)),
             selectedColor: AppColors.primary,
             unselectedColor: Colors.grey,
           ),
 
           SalomonBottomBarItem(
             icon: const Icon(Icons.history),
-            title: const Text('Saved'),
+            title: Text(translate('nav.my_orders_title', context)),
             selectedColor: AppColors.primary,
             unselectedColor: Colors.grey,
           ),
 
           SalomonBottomBarItem(
             icon: const Icon(Icons.wallet_outlined),
-            title: const Text('My Books'),
+            title: Text(translate('nav.wallet_title', context)),
             selectedColor: AppColors.primary,
             unselectedColor: Colors.grey,
           ),
 
           SalomonBottomBarItem(
             icon: const Icon(Icons.person_outline),
-            title: const Text('Profile'),
+            title: Text(translate('nav.profile_title', context)),
             selectedColor: AppColors.primary,
             unselectedColor: Colors.grey,
           ),
