@@ -45,4 +45,18 @@ class OrdersCubit extends Cubit<OrdersState> {
       emit(OrderError(message: handleError(e, stackTrace: s)));
     }
   }
+
+  Future<void> createOrder({required FormData formData}) async {
+    emit(CreateOrderLoading());
+    try {
+      await NetworkClient.post(url: ApiEndpoints.orders, data: formData);
+
+      if (isClosed) return;
+      emit(CreateOrderSuccess());
+    } catch (e, s) {
+      if (isClosed) return;
+      logApiName('createOrder');
+      emit(CreateOrderError(message: handleError(e, stackTrace: s)));
+    }
+  }
 }

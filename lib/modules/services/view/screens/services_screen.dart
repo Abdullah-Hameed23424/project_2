@@ -87,7 +87,12 @@ class ServicesScreen extends StatelessWidget {
                         final service = state.children[index];
 
                         return GestureDetector(
-                          onTap: AppRoutes.toCreateOrderScreen,
+                          onTap: () {
+                            AppRoutes.toCreateOrderScreen(
+                              serviceCategoryId: categoryId,
+                              opId: service.id,
+                            );
+                          },
                           child: Padding(
                             padding: EdgeInsets.only(bottom: 12.h),
                             child: Container(

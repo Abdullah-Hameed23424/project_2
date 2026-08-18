@@ -43,3 +43,15 @@ final class OrderError extends OrdersState {
   @override
   List<Object?> get props => [message];
 }
+
+final class CreateOrderLoading extends OrdersState {}
+
+final class CreateOrderSuccess extends OrdersState {}
+
+final class CreateOrderError extends OrdersState {
+  final String message;
+  CreateOrderError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}

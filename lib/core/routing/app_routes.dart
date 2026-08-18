@@ -35,7 +35,6 @@ class AppRoutes {
       Routes.languageScreen: (_) => const LanguageScreen(),
 
       Routes.addressesScreen: (_) => const AddressesScreen(),
-      Routes.createOrderScreen: (_) => const CreateOrderScreen(),
     };
   }
 
@@ -81,6 +80,15 @@ class AppRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => OrderDetailsScreen(orderId: id),
+        );
+      case Routes.createOrderScreen:
+        final Map arge = settings.arguments as Map;
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => CreateOrderScreen(
+            serviceCategoryId: arge['catId'],
+            opId: arge['opId'],
+          ),
         );
 
       default:
@@ -152,8 +160,14 @@ class AppRoutes {
     return NavigationService.navigateTo(Routes.addressesScreen);
   }
 
-  static Future<dynamic>? toCreateOrderScreen() {
-    return NavigationService.navigateTo(Routes.createOrderScreen);
+  static Future<dynamic>? toCreateOrderScreen({
+    required int serviceCategoryId,
+    required int opId,
+  }) {
+    return NavigationService.navigateTo(
+      Routes.createOrderScreen,
+      arguments: {'catId': serviceCategoryId, 'opId': opId},
+    );
   }
 
   static Future<dynamic>? toServicesScreen({required int categoryId}) {
