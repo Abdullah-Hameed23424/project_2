@@ -12,7 +12,6 @@ import 'package:project_2/modules/orders/view/widgets/action_btns.dart';
 import 'package:project_2/modules/orders/view/widgets/customer_card.dart';
 import 'package:project_2/modules/orders/view/widgets/download_btn.dart';
 import 'package:project_2/modules/orders/view/widgets/fee_widget.dart';
-import 'package:project_2/modules/orders/view/widgets/invoice_card.dart';
 import 'package:project_2/modules/orders/view/widgets/order_info_card.dart';
 import 'package:project_2/modules/orders/view/widgets/problem_card.dart';
 
